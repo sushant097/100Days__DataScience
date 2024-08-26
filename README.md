@@ -1,6 +1,7 @@
 # 100 Days of Data Science
 
-![](images/cover_photo.png)
+<img src="images/cover_photo.png" alt="drawing" style="height:500px;"/>
+
 
 Welcome to my **100 Days of Data Science** journey! 🚀
 
