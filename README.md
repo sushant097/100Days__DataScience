@@ -36,3 +36,24 @@ On the first day, I worked with the **Women's E-Commerce Clothing Reviews** data
 * Kaggle Notebook: [Kaggle Notebook](https://www.kaggle.com/code/sushant097/transforming-review-data-into-features/)
 * Dataset Link: [Dataset link](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews)
 
+
+## Day 2: Predict Adult Income
+
+On Day 2, I worked with the Adult income dataset. I focused on exploring the data, performing preprocessing, and building a machine-learning model to predict adult income >50k or not.
+
+Mainly worked with two models, logistic Regression and random Forest Classifier, are compared. The data seems imbalanced, so the random forest classifier improves the model's accuracy a bit. 
+
+Learned and implemented :
+* Data Encoding and feature scaling improves model performance. 
+* Increase model complexity if the data is complex and accuracy is not improved with a simpler model. 
+* Hypertuning methods like grid search improve the model accuracy as it finds the best parameters that work for the model for the given dataset.
+* Visualized the feature importance of the model: Model interpretation.
+* Search and listed other ways to improve model accuracy like SMOTE for data imbalance case, model class weight adjustment such that model can focus on minority class, Ensembling methods (like stacking, boosting) is another option.
+
+* Github Implementation NotebooK: [Github Notebook](Implementation/Day1/transforming-review-data-into-features.ipynb)
+* Kaggle Notebook: [Kaggle Notebook](https://www.kaggle.com/code/sushant097/day2-100daysofdatascience/)
+* Dataset Link: [Dataset link]( http://archive.ics.uci.edu/dataset/2/adult)
+
+![](images/Day1_result.png)
+
+
