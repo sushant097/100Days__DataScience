@@ -2,6 +2,9 @@
 
 <img src="images/cover_photo.png" alt="drawing" style="height:500px;"/>
 
+![image](https://github.com/user-attachments/assets/2a2302a3-eff7-4461-aa76-c77e5e8541a0)
+
+
 
 Welcome to my **100 Days of Data Science** journey! 🚀
 
