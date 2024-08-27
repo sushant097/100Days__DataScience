@@ -46,7 +46,7 @@ Mainly worked with two models, logistic Regression and random Forest Classifier,
 Learned and implemented :
 * Data Encoding and feature scaling improves model performance. 
 * Increase model complexity if the data is complex and accuracy is not improved with a simpler model. 
-* Hypertuning methods like grid search improve the model accuracy as it finds the best parameters that work for the model for the given dataset.
+* Hyperparameter tuning methods like grid search improve the model accuracy as it finds the best parameters that work for the model for the given dataset.
 * Visualized the feature importance of the model: Model interpretation.
 * Search and listed other ways to improve model accuracy like SMOTE for data imbalance case, model class weight adjustment such that model can focus on minority class, Ensembling methods (like stacking, boosting) is another option.
 
