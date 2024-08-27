@@ -52,7 +52,7 @@ Learned and implemented :
 
 * Github Implementation NotebooK: [Github Notebook](Implementation/Day1/transforming-review-data-into-features.ipynb)
 * Kaggle Notebook: [Kaggle Notebook](https://www.kaggle.com/code/sushant097/day2-100daysofdatascience/)
-* Dataset Link: [Dataset link]( http://archive.ics.uci.edu/dataset/2/adult)
+* Dataset Link: [Dataset link](http://archive.ics.uci.edu/dataset/2/adult)
 
 ![](images/Day1_result.png)
 
