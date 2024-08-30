@@ -57,3 +57,37 @@ Learned and implemented :
 ![](images/Day1_result.png)
 
 
+## Day3: Online Retail Customer Segmentation
+
+
+🔍 **Explored Online Retail Data for Customer Segmentation Using Machine Learning**
+
+- **Dataset Used**: Online Retail II (2009-2010), containing transactional data including Invoice, StockCode, CustomerID, Quantity, and Price.
+  
+- **Data Preparation**:
+  - Loaded the dataset and performed initial exploration to understand its structure.
+  - Cleaned the data by removing duplicates and handling missing values.
+  - Conducted feature engineering to create relevant metrics like `TotalSpent`, `NumOrders`, and `TotalQuantity` for each customer.
+
+- **Exploratory Data Analysis (EDA)**:
+  - Visualized the distribution of key features like `TotalSpent` and explored relationships using scatter plots and pairplots.
+  - Utilized Seaborn to create attractive and insightful visualizations.
+
+- **Data Normalization**:
+  - Applied standardization to ensure all features contributed equally in the clustering process.
+
+- **Customer Segmentation with K-Means Clustering**:
+  - Determined the optimal number of clusters using the Elbow Method.
+  - Applied K-Means clustering to segment customers based on their purchasing behavior.
+  - Visualized the customer segments and analyzed their characteristics.
+
+- **Key Insights**:
+  - Successfully segmented customers into distinct groups, each with unique purchasing patterns.
+  - Identified potential target groups for personalized marketing strategies.
+
+
+* Github Implementation NotebooK: [Github Notebook](Implementation/Day3/day3-online-retail-prediction.ipynb)
+* Kaggle Notebook: [Kaggle Notebook](https://www.kaggle.com/code/sushant097/day3-online-retail-customer-segmentation/)
+* Dataset Link: [Dataset link](http://archive.ics.uci.edu/dataset/352/online+retail)
+
+![](images/Day3_result.png)
