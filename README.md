@@ -2,8 +2,8 @@
 
 
 <p align="center">
-  <img src="images/cover_photo.png" alt="Image 1" width="200" height="200">
-  <img src="https://github.com/user-attachments/assets/2a2302a3-eff7-4461-aa76-c77e5e8541a0" alt="Image 2" width="200" height="200">
+  <img src="images/cover_photo.png" alt="Image 1" width="400" height="400">
+  <img src="https://github.com/user-attachments/assets/2a2302a3-eff7-4461-aa76-c77e5e8541a0" alt="Image 2" width="300" height="300">
 </p>
 
 
