@@ -117,6 +117,12 @@ Learned and implemented :
 
 - Advanced data visualization techniques like univariate, bivariate, box plot, and pair plot help in understanding different attributes of the dataset, contributing to building a more robust machine learning model.
 
+**Resources:**
+
+* **[Notebook](./Implementation/Day%204/day4-predict-deposit-of-bank.ipynb)**
+
+* **[Dataset](https://www.kaggle.com/datasets/sushant097/bank-marketing-dataset-full/data)**
+
 <p align="center">
   <img src="images/Day_4_result.png" alt="Image 1" width="600" height="400">
   <img src="images/Day_4_correlation_heatmap.png" alt="Image 2" width="300" height="300">
