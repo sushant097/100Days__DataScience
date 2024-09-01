@@ -93,3 +93,31 @@ Learned and implemented :
 * Dataset Link: [Dataset link](http://archive.ics.uci.edu/dataset/352/online+retail)
 
 ![](images/Day3_result.png)
+
+
+## Day4: Bank marketing dataset to predict customer subscription behavior
+
+🚀 On Day 4 I focused on a bank marketing dataset to predict customer subscription behavior. Here's what I accomplished:
+
+🔍 Learned and implemented:
+
+- 🧹 **Data Preprocessing:** Applied label encoding to handle categorical variables and standard scaling to normalize feature ranges.
+
+- 📊 **Exploratory Data Analysis (EDA):** Conducted detailed univariate and bivariate analysis to uncover patterns and relationships in the data.
+
+- 🤖 **Logistic Regression:** Built and interpreted a binary classification model to predict customer subscriptions, analyzing feature importance based on model coefficients.
+
+- 🌳 **Random Forest Classifier:** Compared Logistic Regression with a Random Forest model, which provided better performance in identifying potential subscribers.
+
+- 📈 **Feature Importance Visualization:** Visualized how different features contribute to the prediction, helping to understand the model's decision-making process.
+
+💡 Takeaway:
+
+- Combining simple models like Logistic Regression with more complex ones like Random Forest can offer valuable insights and improved accuracy in predictive tasks.
+
+- Advanced data visualization techniques like univariate, bivariate, box plot, and pair plot help in understanding different attributes of the dataset, contributing to building a more robust machine learning model.
+
+<p align="center">
+  <img src="images/Day_4_result.png" alt="Image 1" width="600" height="400">
+  <img src="images/Day_4_correlation_heatmap.png" alt="Image 2" width="300" height="300">
+</p>
