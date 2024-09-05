@@ -127,3 +127,34 @@ Learned and implemented :
   <img src="images/Day_4_result.png" alt="Image 1" width="600" height="400">
   <img src="images/Day_4_correlation_heatmap.png" alt="Image 2" width="300" height="300">
 </p>
+
+
+## Day 5 of 100 Days of Data Science Challenge
+
+### 🚀 Dataset: Dry Bean Dataset
+
+Today, I focused on classifying different types of beans based on geometric and shape-related features using machine learning. Below are the tasks I completed:
+
+### 🔍 Steps Implemented:
+
+- 🧹 **Data Preprocessing**: Removed redundant features by analyzing high correlations to prevent multicollinearity and improve model efficiency.
+  
+- 📊 **Exploratory Data Analysis (EDA)**: Conducted feature exploration using pair plots and a correlation heatmap to discover patterns and feature relationships.
+
+- 🌳 **Random Forest Classifier**: Built a Random Forest classification model to predict the bean classes with an accuracy of **92.6%**.
+
+- 📈 **Feature Importance Analysis**: Visualized the feature importance, identifying the most relevant features contributing to the prediction.
+
+- 📉 **Confusion Matrix**: Generated a confusion matrix to evaluate model performance by examining correct and incorrect predictions for each class.
+
+### 💡 Takeaway:
+
+Removing redundant features and performing feature importance analysis significantly improved the Random Forest model’s accuracy. Visualization tools like heatmaps and pair plots were essential for understanding data patterns and enhancing model interpretation.
+
+### Some Results:
+![Image 1](images/Day_5_result1.png)
+![Image 2](images/Day5_result2.png)
+![Image 2](images/Day5_result3.png)
+
+
+
