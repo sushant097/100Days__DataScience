@@ -156,5 +156,9 @@ Removing redundant features and performing feature importance analysis significa
 ![Image 2](images/Day5_result2.png)
 ![Image 2](images/Day5_result3.png)
 
+**Resources:**
+* **[Kaggle Notebook](https://www.kaggle.com/code/sushant097/day-5-dry-bean-dataset-analysis/)**
+* **[Dataset](https://www.kaggle.com/datasets/muratkokludataset/dry-bean-dataset)**
+
 
 
