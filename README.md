@@ -162,3 +162,28 @@ Removing redundant features and performing feature importance analysis significa
 
 
 
+## Day 6 of 100 Days of Data Science Challenge
+
+### Tackling Overfitting in Machine Learning
+
+![](images/Day6_overfittinginml.jpg)
+
+That sounds like a great topic to share! Here's a draft you can use for your LinkedIn post:
+
+---
+
+**Day 6/100: Tackling Overfitting in Machine Learning**
+
+**What is Overfitting?**  
+Overfitting happens when a model performs exceptionally well on the training data but struggles with new, unseen data. Essentially, the model becomes too complex and starts capturing noise and outliers instead of the true underlying patterns. In other words, it "memorizes" the data rather than learning from it.
+
+**How can we reduce Overfitting?**  
+Here are a few techniques to prevent overfitting:
+- **Regularization:** This adds a penalty to the complexity of the model. Two popular types are L1 (Lasso) and L2 (Ridge) regularization. They help by constraining or shrinking the coefficient values, which reduces the model's complexity.
+- **Cross-validation:** Using techniques like k-fold cross-validation ensures that the model is evaluated on different portions of the data, making it more robust.
+- **Simpler models:** Choosing simpler models with fewer parameters can reduce the chances of overfitting.
+- **Early stopping:** This involves stopping the training process before the model starts overfitting the training data.
+- **Data augmentation:** In cases like image classification, artificially increasing the size of the training data by applying transformations like rotation or flipping can help the model generalize better.
+
+Learning to prevent overfitting is essential for building models that not only perform well on training data but also on new data. 
+
