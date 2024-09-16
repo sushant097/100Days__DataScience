@@ -168,11 +168,6 @@ Removing redundant features and performing feature importance analysis significa
 
 ![](images/Day6_overfittinginml.jpg)
 
-That sounds like a great topic to share! Here's a draft you can use for your LinkedIn post:
-
----
-
-**Day 6/100: Tackling Overfitting in Machine Learning**
 
 **What is Overfitting?**  
 Overfitting happens when a model performs exceptionally well on the training data but struggles with new, unseen data. Essentially, the model becomes too complex and starts capturing noise and outliers instead of the true underlying patterns. In other words, it "memorizes" the data rather than learning from it.
