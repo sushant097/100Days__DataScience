@@ -162,7 +162,7 @@ Removing redundant features and performing feature importance analysis significa
 
 
 
-## Day 6 of 100 Days of Data Science Challenge
+## Day 7 of 100 Days of Data Science Challenge
 
 ### Tackling Overfitting in Machine Learning
 
