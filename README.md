@@ -182,3 +182,36 @@ Here are a few techniques to prevent overfitting:
 
 Learning to prevent overfitting is essential for building models that not only perform well on training data but also on new data. 
 
+## Day 6 of 100 Days of Data Science Challenge
+
+### Understanding the Bias-Variance Tradeoff in Machine Learning
+
+
+The **bias-variance tradeoff** is a crucial concept in machine learning that helps us understand the performance of our models in terms of prediction error. This tradeoff occurs when balancing two sources of error:
+
+- **Bias**: The error caused by a model that is too simple and cannot capture the underlying patterns in the data. High bias leads to **underfitting**, where the model performs poorly on both the training data and new, unseen data.
+
+- **Variance**: The error caused by a model that is too complex and overly sensitive to the training data. High variance leads to **overfitting**, where the model fits even the noise in the data, resulting in poor performance on new data.
+
+### Key Concept:
+- **Underfitting**: When the model has high bias and cannot capture the relationships in the data.
+- **Overfitting**: When the model has high variance and fits the training data too closely, including noise.
+
+The goal in machine learning is to **minimize the total error** by finding a balance between bias and variance, i.e., creating a model that generalizes well to new, unseen data.
+
+### Visualizing the Bias-Variance Tradeoff:
+
+![](images/Day7_biasvariance.png)
+
+
+In the above graph:
+- As **model complexity** increases, **bias** decreases, but **variance** increases.
+- The **total error** (black curve) is the sum of errors from bias and variance, and the optimal model complexity is where the total error is minimized.
+
+### How to Handle the Bias-Variance Tradeoff:
+- **Increase complexity** to reduce bias (e.g., using a more powerful model).
+- **Reduce complexity** to decrease variance (e.g., using regularization techniques).
+- Use techniques like **cross-validation** to ensure the model generalizes well.
+
+This tradeoff is key to building a model that neither underfits nor overfits and performs well on both the training data and unseen data.
+
