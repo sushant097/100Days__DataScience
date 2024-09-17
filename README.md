@@ -162,7 +162,7 @@ Removing redundant features and performing feature importance analysis significa
 
 
 
-## Day 7 of 100 Days of Data Science Challenge
+## Day 6 of 100 Days of Data Science Challenge
 
 ### Tackling Overfitting in Machine Learning
 
@@ -182,7 +182,7 @@ Here are a few techniques to prevent overfitting:
 
 Learning to prevent overfitting is essential for building models that not only perform well on training data but also on new data. 
 
-## Day 6 of 100 Days of Data Science Challenge
+## Day 7 of 100 Days of Data Science Challenge
 
 ### Understanding the Bias-Variance Tradeoff in Machine Learning
 
