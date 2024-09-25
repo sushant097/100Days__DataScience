@@ -215,3 +215,41 @@ In the above graph:
 
 This tradeoff is key to building a model that neither underfits nor overfits and performs well on both the training data and unseen data.
 
+
+## Day 8 of 100 Days of Data Science: Handling Data Imbalance
+
+
+When we're working with datasets, we'll often come across situations where one class has many more samples than the other(s). This is called **data imbalance**. For example, in a dataset of credit card transactions, there may be 95% legitimate transactions and only 5% fraudulent ones. A model trained on this data might simply predict "legitimate" every time and achieve high accuracy, but it would fail to catch fraud, which is the most important outcome.
+
+Here’s how we can handle it:
+
+### 1. **Resampling the Dataset**
+   - **Oversampling**: Add more examples of the minority class by duplicating or creating synthetic examples (using techniques like SMOTE).
+   - **Undersampling**: Reduce the majority class by removing some examples.
+
+### 2. **Using Different Metrics**
+   - Instead of using accuracy, we should look at metrics like:
+     - **Precision**: How many of the predicted positives are correct.
+     - **Recall**: How many actual positives were identified.
+     - **F1-Score**: Harmonic mean of precision and recall.
+     - **AUC-ROC**: Area under the curve that shows how well the model distinguishes between classes.
+
+### 3. **Modifying Algorithms**
+   - **Cost-sensitive learning**: Adjust the algorithm so that it penalizes the model more for getting the minority class wrong. This makes the model pay more attention to the minority class.
+
+### 4. **Using Ensemble Methods**
+   - Models like **Random Forest** or **Gradient Boosting** can combine multiple decision trees, making them more robust to imbalanced data.
+
+---
+
+Here’s a simple  code to demonstrate each technique:
+
+![](images/Day8_code.png)
+
+### Detailed Comments:
+
+1. **Data generation**: We generate a synthetic dataset where 90% of the data belongs to the majority class, and only 10% belongs to the minority class.
+2. **Train-test split**: We divide the dataset into training and test sets.
+3. **Base model**: We train a RandomForest classifier on the imbalanced dataset to show how a model performs without handling imbalance.
+4. **SMOTE**: We apply SMOTE, an oversampling technique, to balance the classes by generating synthetic data for the minority class.
+5. **Undersampling**: We undersample the majority class by randomly selecting a subset of examples equal to the number of minority class examples. This ensures that both classes are equally represented.
