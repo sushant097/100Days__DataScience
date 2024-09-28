@@ -253,3 +253,54 @@ Here’s a simple  code to demonstrate each technique:
 3. **Base model**: We train a RandomForest classifier on the imbalanced dataset to show how a model performs without handling imbalance.
 4. **SMOTE**: We apply SMOTE, an oversampling technique, to balance the classes by generating synthetic data for the minority class.
 5. **Undersampling**: We undersample the majority class by randomly selecting a subset of examples equal to the number of minority class examples. This ensures that both classes are equally represented.
+
+
+## Day 9 of 100 Days of Data Science: 𝐀/𝐁 𝐓𝐞𝐬𝐭𝐢𝐧𝐠 – 𝐓𝐡𝐞 𝐊𝐞𝐲 𝐭𝐨 𝐃𝐚𝐭𝐚-𝐃𝐫𝐢𝐯𝐞𝐧 𝐃𝐞𝐜𝐢𝐬𝐢𝐨𝐧𝐬 🔍📊
+
+
+### **What is A/B Testing?**
+
+A/B testing is basically a way to compare two different versions of something—like a website, email, or product feature—to figure out which one works better. It’s like running a mini-experiment, where you show one version (Version A) to half of your audience and a second version (Version B) to the other half, then see which version gets better results.
+
+### **An Everyday Example:**
+Imagine you run an **online store**. You want to sell more items, so you're trying to figure out which “Buy Now” button works better. You have two different designs:
+- **Version A**: A red button with the text “Buy Now.”
+- **Version B**: A green button with the text “Shop Now.”
+
+You don’t want to just guess which button will get more people to make a purchase, so you decide to test it out using A/B testing.
+
+### **How to Run an A/B Test:**
+
+1. **Split Your Audience**:  
+   First, you divide your website visitors into two random groups. One group (Group 1) will see **Version A** with the red button, and the other group (Group 2) will see **Version B** with the green button. This way, each group gets a different experience, but everything else about the website stays the same.
+
+2. **Track What Happens**:  
+   Let the test run for some time, like a week. During this time, you track how many people from each group actually click the button and buy something.
+   - **Group 1 (Red Button)**: Out of 1000 people, 100 make a purchase (which means a **10% conversion rate**).
+   - **Group 2 (Green Button)**: Out of 1000 people, 120 make a purchase (which means a **12% conversion rate**).
+
+   So it looks like the green button (Version B) is doing better since more people clicked and bought something. But we need to be sure this difference didn’t happen by chance.
+
+3. **Is the Difference Real or Just Luck?**  
+   To know for sure if the green button is better, we need to check if the results are **statistically significant**. This means we want to see if the difference in conversion rates is big enough to confidently say it’s because of the button and not just random luck. This is where we use something called a **p-value**. 
+
+4. **Check for Statistical Significance**:  
+   The **p-value** helps you figure out if the difference between the red and green button is real or just a coincidence. If the p-value is less than 0.05, it means there's only a 5% chance the difference happened randomly. In this case, if the p-value is below 0.05, we can confidently say that **Version B (green button)** really is better.
+
+5. **Make Your Decision**:  
+   If the test shows that the green button is truly better, you can now make it the default for everyone who visits your website. You know from the test that this change will likely lead to more purchases!
+
+### **Breaking Down Some Key Terms:**
+
+- **Conversion Rate**: The percentage of visitors who complete the action you want, like making a purchase. In our example, it was 10% for the red button and 12% for the green button.
+- **Control Group (A)**: This is the group that sees the original version of the button (red in this case).
+- **Test Group (B)**: This group sees the new version (green button).
+- **Statistical Significance**: This is a way to measure if the difference between the two groups is real and not just due to chance.
+- **p-value**: A number that tells you how likely it is that the difference happened by random chance. If it’s less than 0.05, you can be pretty confident that the difference is meaningful.
+
+### **Why A/B Testing Matters:**
+
+A/B testing helps you make decisions based on **data**, not just guesses or instincts. Instead of assuming what will work better, you test it with real users and see the results for yourself. This means your decisions are backed by facts, and you’re more likely to make improvements that actually matter.
+
+### Code Example:
+![](images/Day9_code.png)
