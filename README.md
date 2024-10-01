@@ -322,7 +322,7 @@ Where:
 
 ### Normal Equation
 
-The Normal Equation provides a closed-form solution to compute the optimal parameters (\(\theta\)) that minimize the cost function (Mean Squared Error). The cost function is defined as:
+The Normal Equation provides a closed-form solution to compute the optimal parameters $(\theta)$ that minimize the cost function (Mean Squared Error). The cost function is defined as:
 
 $$
 J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x^{(i)}) - y^{(i)})^2
@@ -376,7 +376,7 @@ $$
 \frac{\partial J(\theta)}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
 $$
 
-This gradient tells us the direction and magnitude to adjust \(\theta\) to reduce the cost. We update \(\theta\) as:
+This gradient tells us the direction and magnitude to adjust $(\theta)$ to reduce the cost. We update $(\theta)$ as:
 
 $$
 \theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
