@@ -405,9 +405,9 @@ The code for this is:
 - **Cost Function**:  
   In linear regression, the cost function (Mean Squared Error) is minimized to find the best-fitting line. The cost function is:
 
-  $$
+$$
   J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
-  $$
+$$
 
   Where:
   - $h_{\theta}(x^{(i)})$ = $theta_0$ + $theta_1 x^{(i)}$ is the prediction.
@@ -416,11 +416,11 @@ The code for this is:
 - **Gradient Descent Update Rule**:
   To minimize the cost function, we update \(\theta\) using the following rule:
 
-  $$
+$$
   \theta := \theta - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
-  $$
+$$
 
-  This rule is applied repeatedly (for a fixed number of iterations) to get the optimal \(\theta\).
+  This rule is applied repeatedly (for a fixed number of iterations) to get the optimal $(\theta)$.
 
 #### Output:
 
