@@ -304,3 +304,143 @@ A/B testing helps you make decisions based on **data**, not just guesses or inst
 
 ### Code Example:
 ![](images/Day9_code.png)
+
+
+## Day 10 of 100 Days of Data Science: Implement Linear Regression algorithm from scratch 
+
+
+In linear regression, the goal is to model the relationship between the input features $(X)$ and the target variable $(y)$ by fitting a linear equation to the observed data. The model can be expressed as:
+
+$$
+y = X \theta
+$$
+
+Where:
+- $(X)$ is the matrix of input features (including the bias term).
+- $(\theta)$ is the vector of parameters (coefficients), which includes the bias term and the feature coefficients.
+- $(y)$ is the vector of target values (the outputs we want to predict).
+
+### Normal Equation
+
+The Normal Equation provides a closed-form solution to compute the optimal parameters (\(\theta\)) that minimize the cost function (Mean Squared Error). The cost function is defined as:
+
+$$
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_{\theta}(x^{(i)}) - y^{(i)})^2
+$$
+
+Where:
+- $(m)$ is the number of training examples.
+- $(h_{\theta}(x^{(i)}))$ is the predicted value for the $(i)$-th training example.
+- $(y^{(i)})$ is the actual value for the $(i)$-th training example.
+
+To minimize this cost function, we use the Normal Equation:
+
+$$
+\theta = (X^T X)^{-1} X^T y
+$$
+
+Where:
+- $(X^T)$ is the transpose of the feature matrix $(X)$.
+- $((X^T X)^{-1})$ is the inverse of the product of $(X^T)$ and $(X)$.
+- $(y)$ is the target variable vector.
+
+
+$$
+RMSE = \sqrt{\frac{1}{m} \sum_{i=1}^{m} (y^{(i)} - \hat{y}^{(i)})^2}
+$$
+
+Where:
+- $(y^{(i)})$ is the actual value for the $(i)$-th training example.
+- $(\hat{y}^{(i)})$ is the predicted value for the $(i)$-th training example.
+- $(m)$ is the number of data points.
+
+The Root Mean Squared Error (RMSE) gives us an idea of how well the model fits the training data. A lower RMSE indicates a better fit of the model.
+
+
+#### Gradient Descent (Alternative Approach):
+While the Normal Equation provides a direct solution, you can also solve linear regression using **Gradient Descent**. However, this approach is iterative and requires careful tuning of hyperparameters such as the learning rate and number of iterations.
+
+In Gradient Descent, the idea is to iteratively update the model parameters $(\theta)$ to minimize the cost function (Mean Squared Error in our case). The cost function is:
+
+$$
+J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
+$$
+
+Where:
+- $(m)$ is the number of training examples.
+- $h_{\theta}(x^{(i)})$ = $\theta_0$ + $\theta_1 x^{(i)}$ is the hypothesis (predicted value).
+
+The gradient of the cost function with respect to $(\theta)$ is:
+
+$$
+\frac{\partial J(\theta)}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
+$$
+
+This gradient tells us the direction and magnitude to adjust \(\theta\) to reduce the cost. We update \(\theta\) as:
+
+$$
+\theta := \theta - \alpha \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
+$$
+
+Where $(\alpha)$ is the learning rate that controls how big the steps are during the update.
+
+
+The code for this is:
+
+![](images/Day10_code.png)
+
+
+#### Explanation of Code:
+1. **Normal Equation**:
+   - We first compute $(\theta)$ using the closed-form solution with the Normal Equation.
+   - The predicted values and RMSE are calculated and printed.
+
+2. **Gradient Descent**:
+   - A function `gradient_descent` is implemented. It iteratively updates $(\theta)$ using the gradient of the cost function.
+   - After running for `n_iterations`, the final $(\theta)$ values are obtained.
+   - Predictions are made using the learned $(\theta)$, and RMSE is computed and printed.
+
+### Mathematical Explanation:
+
+- **Cost Function**:  
+  In linear regression, the cost function (Mean Squared Error) is minimized to find the best-fitting line. The cost function is:
+
+  $$
+  J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right)^2
+  $$
+
+  Where:
+  - $h_{\theta}(x^{(i)})$ = $theta_0$ + $theta_1 x^{(i)}$ is the prediction.
+  - \(m\) is the number of training examples.
+
+- **Gradient Descent Update Rule**:
+  To minimize the cost function, we update \(\theta\) using the following rule:
+
+  $$
+  \theta := \theta - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
+  $$
+
+  This rule is applied repeatedly (for a fixed number of iterations) to get the optimal \(\theta\).
+
+#### Output:
+
+The output will show the estimated coefficients and RMSE for both the **Normal Equation** and **Gradient Descent** methods.
+
+For example:
+```
+Estimated coefficients using Normal Equation (theta): [[4.21509616]
+                                                       [2.77011339]]
+RMSE on the training set (Normal Equation): 0.8981005311027566
+
+Estimated coefficients using Gradient Descent (theta): [[4.2075467 ]
+                                                        [2.80339251]]
+RMSE on the training set (Gradient Descent): 0.8983479400556326
+```
+
+#### Conclusion:
+
+- **Normal Equation**: Provides an exact solution to linear regression by solving the equation $\theta$ = $(X^T X)^{-1} X^T y$. It works well for small to medium datasets but can be computationally expensive for very large datasets.
+  
+- **Gradient Descent**: Iteratively finds the solution by updating $(\theta)$ in the direction of the negative gradient. It's more scalable for large datasets but requires careful tuning of the learning rate and number of iterations.
+
+Both methods yield similar results, with slight differences due to the iterative nature of gradient descent.
