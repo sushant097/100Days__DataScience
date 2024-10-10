@@ -411,10 +411,10 @@ $$
 
   Where:
   - $h_{\theta}(x^{(i)})$ = $theta_0$ + $theta_1 x^{(i)}$ is the prediction.
-  - \(m\) is the number of training examples.
+  - $m$ is the number of training examples.
 
 - **Gradient Descent Update Rule**:
-  To minimize the cost function, we update \(\theta\) using the following rule:
+  To minimize the cost function, we update $\theta$ using the following rule:
 
 $$
   \theta := \theta - \alpha \cdot \frac{1}{m} \sum_{i=1}^{m} \left( h_{\theta}(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
@@ -444,3 +444,116 @@ RMSE on the training set (Gradient Descent): 0.8983479400556326
 - **Gradient Descent**: Iteratively finds the solution by updating $(\theta)$ in the direction of the negative gradient. It's more scalable for large datasets but requires careful tuning of the learning rate and number of iterations.
 
 Both methods yield similar results, with slight differences due to the iterative nature of gradient descent.
+
+
+## Day 11 100 Days of Data Science: What Do Eigenvalues and Eigenvectors Mean in PCA?
+
+
+In Principal Component Analysis (PCA), **eigenvalues** and **eigenvectors** are core mathematical concepts used to reduce the dimensionality of data while preserving the most significant features or patterns.
+
+
+- **Eigenvectors** are directions in which data is stretched or compressed during a linear transformation. In the context of PCA, they represent the directions (or axes) of the new feature space.
+- **Eigenvalues** correspond to the magnitude of the stretching or compressing along those directions. They tell us how much variance (or information) is captured along each eigenvector.
+
+### **PCA and Covariance Matrix**
+
+PCA starts with the **covariance matrix** of your data, which summarizes the relationship between variables (features) in your dataset. If you have a dataset with $n$ features, the covariance matrix is an $n \times n$ matrix. The goal of PCA is to find the principal components, which are the eigenvectors of this covariance matrix, and the corresponding eigenvalues.
+
+### **Step-by-Step Process of PCA:**
+
+1. **Standardize the Data**: 
+   PCA is affected by the scale of the data, so you start by standardizing your data (mean = 0, variance = 1 for each feature).
+   
+2. **Compute the Covariance Matrix**: 
+   From the standardized data, compute the covariance matrix $ \mathbf{C} $, which is:
+   $
+   \mathbf{C} = \frac{1}{n-1} \mathbf{X}^T \mathbf{X}
+   $
+   where $ \mathbf{X} $ is the matrix of your standardized data.
+
+3. **Find Eigenvalues and Eigenvectors**: 
+   Next, we solve the following equation for eigenvalues $ \lambda $ and eigenvectors $ \mathbf{v} $:
+   $
+   \mathbf{C} \mathbf{v} = \lambda \mathbf{v}
+   $
+   Here, $ \mathbf{v} $ is the eigenvector (a direction in the feature space), and $ \lambda $ is the eigenvalue (the variance captured by that direction). This equation is essentially saying that when the covariance matrix $ \mathbf{C} $ is applied to an eigenvector $ \mathbf{v} $, the result is a scaled version of $ \mathbf{v} $, scaled by $ \lambda $.
+
+4. **Select Principal Components**: 
+   - Sort the eigenvalues in descending order. The eigenvectors corresponding to the largest eigenvalues are the principal components, as they capture the most variance.
+   - The number of eigenvectors (principal components) you choose depends on how much variance you want to retain in your data. Typically, you choose enough eigenvectors to explain 90%–95% of the variance.
+
+### **Equation for PCA in Terms of Eigenvalues and Eigenvectors**:
+
+The transformation of the original data $ \mathbf{X} $ into the principal component space is given by:
+$
+\mathbf{Z} = \mathbf{X} \mathbf{V}
+$
+Where:
+- $ \mathbf{Z} $ is the matrix of transformed data (in terms of principal components).
+- $ \mathbf{V} $ is the matrix of eigenvectors (principal components) that were chosen based on their corresponding eigenvalues.
+- $ \mathbf{X} $ is the original data.
+
+### **Application in PCA**:
+- **Dimensionality Reduction**: PCA helps in reducing the number of features (dimensions) by projecting the data onto the new axes (principal components) defined by the eigenvectors, while preserving the most important information (variance) captured by the eigenvalues.
+  
+- **Data Compression**: By retaining only the principal components with the largest eigenvalues, you can compress your data while losing minimal information.
+
+- **Visualization**: PCA allows for easier visualization of high-dimensional data by reducing it to 2 or 3 dimensions (using the top 2 or 3 eigenvectors).
+
+### **Real-World Example**:
+
+Imagine you have a dataset of customer preferences for different products with 100 features. Analyzing all 100 features might be too complex and unnecessary. PCA reduces the dataset to a smaller number of features (e.g., 10), which still captures most of the patterns in customer behavior. The new axes (eigenvectors) represent combinations of original features, and the corresponding eigenvalues tell you how much information each new axis retains.
+
+### Simple code for visualization:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.datasets import make_blobs
+
+# Generate synthetic 2D data (4 clusters, 2 features)
+X, _ = make_blobs(n_samples=100, n_features=2, centers=4, random_state=42)
+
+# Perform PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+# Get the eigenvectors and eigenvalues
+eigenvectors = pca.components_
+eigenvalues = pca.explained_variance_
+
+# Recalculate eigenvector scaling to be more realistic using square root of eigenvalues
+eigenvalues_sqrt = np.sqrt(eigenvalues)
+# Plot the original data and the eigenvectors with more realistic scaling (without dashed lines)
+plt.figure(figsize=(8, 6))
+plt.scatter(X[:, 0], X[:, 1], alpha=0.6, label='Original Data')
+origin = np.mean(X, axis=0)
+
+# Plot eigenvectors in both positive and negative directions with realistic scaling
+for i in range(2):
+    # Positive direction
+    plt.quiver(*origin, *eigenvectors[i] * eigenvalues_sqrt[i], 
+               angles='xy', scale_units='xy', scale=1, color=f'C{i}', label=f'Eigenvector {i+1} (positive)')
+    # Negative direction
+    plt.quiver(*origin, *-eigenvectors[i] * eigenvalues_sqrt[i], 
+               angles='xy', scale_units='xy', scale=1, color=f'C{i}', alpha=0.6)
+
+# Labels and legend
+plt.axhline(0, color='grey', linestyle='--', linewidth=0.5)
+plt.axvline(0, color='grey', linestyle='--', linewidth=0.5)
+plt.title('PCA: Data with Eigenvectors (More Realistic)')
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.legend()
+plt.grid(True)
+
+plt.show()
+
+```
+#### Output:
+![](images/eigen_vector_value_day11.png)
+
+Here is a visual representation of PCA and its eigenvectors. The scatter plot shows the original 2D data, while the arrows represent the eigenvectors (principal components), scaled by their corresponding eigenvalues. The directions of the arrows indicate the new axes (principal components), and their lengths correspond to how much variance (information) each component captures.
+
+Eigenvector 1 (longer arrow) captures more variance compared to Eigenvector 2, demonstrating that the data is more spread out in that direction. This visual helps explain how PCA transforms the data into a new space based on the directions of maximum variance
