@@ -556,4 +556,13 @@ plt.show()
 
 Here is a visual representation of PCA and its eigenvectors. The scatter plot shows the original 2D data, while the arrows represent the eigenvectors (principal components), scaled by their corresponding eigenvalues. The directions of the arrows indicate the new axes (principal components), and their lengths correspond to how much variance (information) each component captures.
 
-Eigenvector 1 (longer arrow) captures more variance compared to Eigenvector 2, demonstrating that the data is more spread out in that direction. This visual helps explain how PCA transforms the data into a new space based on the directions of maximum variance
+Eigenvector 1 (longer arrow) captures more variance compared to Eigenvector 2, demonstrating that the data is more spread out in that direction. This visual helps explain how PCA transforms the data into a new space based on the directions of maximum .
+
+## Day 12 : Data Analysis on Iris Dataset using R
+
+I analyzed the Iris dataset and wrote the **Story: Uncovering Patterns in the Iris Dataset**.
+
+You can see the implementation notebook over [here](Implementation/Day12/data-analyis-iris-dataset-in-r.ipynb).
+
+If you want to run it directly in Kaggle. [Visit here.](https://www.kaggle.com/code/sushant097/data-analyis-iris-dataset-in-r/notebook?scriptVersionId=201587423)
+
