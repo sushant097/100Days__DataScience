@@ -562,6 +562,13 @@ Eigenvector 1 (longer arrow) captures more variance compared to Eigenvector 2, d
 
 I analyzed the Iris dataset and wrote the **Story: Uncovering Patterns in the Iris Dataset**.
 
+Some of the visualization I got: 
+![image](https://github.com/user-attachments/assets/58fe680c-6d84-4bd3-8c45-8e23a6c07a5b)
+![image](https://github.com/user-attachments/assets/cddcab19-0039-48c6-9080-69b097352981)
+![image](https://github.com/user-attachments/assets/248d589f-8698-43c8-ad5a-550a05a7b379)
+![image](https://github.com/user-attachments/assets/e30a9ed7-e5da-481b-b304-9752e000f82d)
+
+
 You can see the implementation notebook over [here](Implementation/Day12/data-analyis-iris-dataset-in-r.ipynb).
 
 If you want to run it directly in Kaggle. [Visit here.](https://www.kaggle.com/code/sushant097/data-analyis-iris-dataset-in-r/notebook?scriptVersionId=201587423)
