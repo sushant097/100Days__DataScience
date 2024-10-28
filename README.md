@@ -574,6 +574,21 @@ You can see the implementation notebook over [here](Implementation/Day12/data-an
 If you want to run it directly in Kaggle. [Visit here.](https://www.kaggle.com/code/sushant097/data-analyis-iris-dataset-in-r/notebook?scriptVersionId=201587423)
 
 
+## Day 13: Exploring the H1B Landscape: Key Insights from 2015-2019 in R
+
+I analyzed the H1B Dataset and got different interesting insights!. 
+
+Some of the visualization I got: 
+<img width="625" alt="Screenshot 2024-10-23 at 9 03 14 PM" src="https://github.com/user-attachments/assets/d974c71c-fc3b-405b-9b59-74baaff97bb8">
+<img width="718" alt="Screenshot 2024-10-24 at 7 57 46 AM" src="https://github.com/user-attachments/assets/3159e990-b569-42a9-bc22-608e19aec11e">
+![top_10_employeers_petition](https://github.com/user-attachments/assets/e863a8d2-373e-4600-83e9-c806705bebb0)
+![top_10_job_titles](https://github.com/user-attachments/assets/107f6be0-da38-483c-ac66-3e27b23b4f34)
+![trend_for_top_10_job_titles](https://github.com/user-attachments/assets/911dbc7a-aeab-4a1d-8e70-8c3272fd04d4)
+
+
+You can see the implementation notebook over [here](Implementation/Day13/h1b-data-analysis-in-r.ipynb).
+
+If you want to run it directly in Kaggle. [Visit here.](https://www.kaggle.com/code/sushant097/h1b-data-analysis-in-r/notebook)
 
 ------
 Happy Learning! 📊
