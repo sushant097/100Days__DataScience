@@ -611,11 +611,17 @@ $L(\mathbf{w}, b) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1
 
 Where $( y_i )$ is the true label, $( \hat{y}_i )$ is the predicted probability, and $( N )$ is the number of training samples.
 
+**The Loss Function: Cross-Entropy Loss:**
+
+Logistic regression uses cross-entropy loss (also known as log loss) as its loss function. This measures the difference between the predicted probability y' and the actual label y for each training sample. The goal of gradient descent is to minimize the loss function. The negative sign ensures that the cross-entropy loss yields positive values, creating a function that is minimized when predictions align with true labels. Thus, with the negative sign, the model’s goal becomes to lower the error, leading to more accurate predictions.
+
 **Gradient Descent for Logistic Regression**:
 To update the model parameters, we compute the gradient of the loss function with respect to the weights and biases:
 
 
-<!-- $\frac{\partial L}{\partial w_j}$ = $\frac{1}{N}$ $\sum_{i=1}^{N}$ $(\hat{y}_i - y_i)$ *  $x_{ij}$ -->
+<!-- $\frac{\partial L}{\partial w_j}$ = $\frac{1}{N}$ $\sum_{i=1}^{N}$ $(\hat{y}_i - y_i)$ *  $x_{ij}$  -->
+
+After solving couple of equations we get,
 
 $\frac{\partial L}{\partial w_ij} = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i) * x_ij$ 
 
@@ -628,6 +634,9 @@ $w_j = w_j - \eta \frac{\partial L}{\partial w_j}$
 $b = b - \eta \frac{\partial L}{\partial b}$
 
 Where $\eta$ is the learning rate.
+
+
+
 
 
 
