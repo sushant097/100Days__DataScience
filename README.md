@@ -590,5 +590,47 @@ You can see the implementation notebook over [here](Implementation/Day13/h1b-dat
 
 If you want to run it directly in Kaggle. [Visit here.](https://www.kaggle.com/code/sushant097/h1b-data-analysis-in-r/notebook)
 
+## Day 14: Gradient Descent of Logistic regression
+
+![](images/Day14_logistic_regression_cost.png)
+
+Today I learn about derivation of gradient descent parameters for logistic regression. Here is popular interview question: 
+
+ **[Difficult] Can You Explain Logistic Regression and Derive Gradient Descent for Logistic Regression?**
+
+**Logistic Regression** is a statistical model used for binary classification tasks. It predicts the probability that a given input belongs to a particular class. The model uses the logistic function (or sigmoid function) to convert the linear combination of input features into a probability.
+
+**Logistic Function**:
+
+$[ \sigma(z) = \frac{1}{1 + e^{-z}} ]$
+
+Where $( z = \mathbf{w}^\top \mathbf{x} + b )$ (linear combination of weights and features).
+
+The **loss function** used in logistic regression is the **cross-entropy loss**:
+$L(\mathbf{w}, b) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]$
+
+Where $( y_i )$ is the true label, $( \hat{y}_i )$ is the predicted probability, and $( N )$ is the number of training samples.
+
+**Gradient Descent for Logistic Regression**:
+To update the model parameters, we compute the gradient of the loss function with respect to the weights and biases:
+
+
+<!-- $\frac{\partial L}{\partial w_j}$ = $\frac{1}{N}$ $\sum_{i=1}^{N}$ $(\hat{y}_i - y_i)$ *  $x_{ij}$ -->
+
+$\frac{\partial L}{\partial w_ij} = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i) * x_ij$ 
+
+$\frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i)$
+
+These gradients are then used to update the weights and biases iteratively:
+
+$w_j = w_j - \eta \frac{\partial L}{\partial w_j}$
+
+$b = b - \eta \frac{\partial L}{\partial b}$
+
+Where $\eta$ is the learning rate.
+
+
+
+
 ------
 Happy Learning! 📊
