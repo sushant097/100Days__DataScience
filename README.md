@@ -668,12 +668,9 @@ Activation functions are crucial components in neural networks, introducing non-
    - **Characteristics**: Softmax is used in the output layer for multi-class classification problems. It converts logits (raw model outputs) into probabilities, with each output representing the probability of a class.
 
 6. **ELU (Exponential Linear Unit) Activation Function**
-   - **Equation**: $\text{ELU}(x)$ = 
-   $$
-   \begin{cases}
-       x & \text{if } x > 0 \\ \alpha(e^x - 1) & \text{if } x \leq 0 
-   \end{cases}
-   $$
+   - **Equation**:
+   ![image](https://github.com/user-attachments/assets/1cbba4c9-af47-44f2-ad16-38dac0a7f7c0)
+
 
    - **Range**: (-α, ∞) where α is a constant.
    - **Characteristics**: ELU is similar to ReLU but tends to push mean unit activations closer to zero, which speeds up learning. The exponential component allows the function to output negative values, reducing the bias shift during training.
@@ -682,6 +679,11 @@ Activation functions are crucial components in neural networks, introducing non-
    - **Equation**: $\text{Swish}(x) = x \cdot \sigma(x)$
    - **Range**: $(-∞, ∞)$
    - **Characteristics**: Swish is a smooth, non-monotonic function that has been shown to outperform ReLU on deeper models. Unlike ReLU, it allows for negative inputs and has a non-zero gradient for all inputs.
+
+
+Different activation functions plot:
+![image](https://github.com/user-attachments/assets/cf0e7806-300a-4f53-9fbe-bbfab29de9f6)
+
 
 ### The Vanishing Gradient Problem
 
