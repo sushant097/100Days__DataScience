@@ -637,6 +637,73 @@ Where $\eta$ is the learning rate.
 
 
 
+## Day 15: Different Types of Activation Functions 
+
+### Different Types of Activation Functions
+
+Activation functions are crucial components in neural networks, introducing non-linearity into the model, which allows the network to learn complex patterns. Here are the common types of activation functions:
+
+1. **Sigmoid Activation Function**
+   - **Equation**: $\sigma(x) = \frac{1}{1 + e^{-x}}$
+   - **Range**: (0, 1)
+   - **Characteristics**: The sigmoid function maps input values to a range between 0 and 1, making it useful for binary classification. However, it tends to suffer from the **vanishing gradient problem**, especially for very high or very low input values, where the gradient becomes very small, slowing down learning.
+
+2. **Tanh (Hyperbolic Tangent) Activation Function**
+   - **Equation**: $\text{tanh}(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
+   - **Range**: (-1, 1)
+   - **Characteristics**: The tanh function is similar to the sigmoid but is zero-centered, meaning the outputs are in the range of -1 to 1. This can make optimization easier, but it still suffers from the vanishing gradient problem in a similar way to the sigmoid function.
+
+3. **ReLU (Rectified Linear Unit) Activation Function**
+   - **Equation**: $\text{ReLU}(x) = \max(0, x)$
+   - **Range**: $[0, ∞)$
+   - **Characteristics**: ReLU is the most commonly used activation function in deep learning models. It outputs the input directly if it is positive; otherwise, it outputs zero. ReLU mitigates the vanishing gradient problem but can lead to **dying ReLU** where neurons stop activating (outputting zero) across all inputs, which can cause some parts of the network to essentially "die."
+
+4. **Leaky ReLU Activation Function**
+   - **Equation**: $\text{Leaky ReLU}(x) = \max(\alpha x, x)$ (where $( \alpha )$ is a small positive value, usually 0.01)
+   - **Range**: $(-∞, ∞)$
+   - **Characteristics**: Leaky ReLU is a variation of ReLU where, instead of outputting zero for negative inputs, it outputs a small, non-zero value (controlled by $( \alpha )$. This helps prevent the dying ReLU problem and ensures that all neurons continue to learn.
+
+5. **Softmax Activation Function**
+   - **Equation**: $\text{Softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}$
+   - **Range**: (0, 1) for each output, and the sum of all outputs is 1.
+   - **Characteristics**: Softmax is used in the output layer for multi-class classification problems. It converts logits (raw model outputs) into probabilities, with each output representing the probability of a class.
+
+6. **ELU (Exponential Linear Unit) Activation Function**
+   - **Equation**: 
+   
+
+   $\text{ELU}(x)$ = 
+   $\begin{cases} x & \text{if } x > 0 \\ \alpha(e^x - 1) & \text{if } x \leq 0 
+   \end{cases}$
+
+   - **Range**: (-α, ∞) where α is a constant.
+   - **Characteristics**: ELU is similar to ReLU but tends to push mean unit activations closer to zero, which speeds up learning. The exponential component allows the function to output negative values, reducing the bias shift during training.
+
+7. **Swish Activation Function**
+   - **Equation**: $\text{Swish}(x) = x \cdot \sigma(x)$
+   - **Range**: $(-∞, ∞)$
+   - **Characteristics**: Swish is a smooth, non-monotonic function that has been shown to outperform ReLU on deeper models. Unlike ReLU, it allows for negative inputs and has a non-zero gradient for all inputs.
+
+### The Vanishing Gradient Problem
+
+The **vanishing gradient problem** is a major issue that occurs during the training of deep neural networks, especially when using activation functions like Sigmoid and Tanh. The problem arises because, in these functions, the gradients can become extremely small as the input moves towards the saturated regions of the curve (either very high or very low values). This causes the gradient descent updates to become negligible, effectively stalling the learning process for earlier layers in the network.
+
+#### **Why It Happens:**
+1. **Sigmoid and Tanh Functions**: Both functions squash the input into a small range, leading to very small gradients for inputs that are far from the origin. For example, in the case of the sigmoid function, when the input $x$ is large and positive or large and negative, the gradient $ \sigma(x) \cdot (1 - \sigma(x))$ becomes very close to zero.
+  
+2. **Layer-Wise Gradient Multiplication**: In backpropagation, the gradients are propagated backward through the network. If the gradients are small in the early layers (near the input), the multiplication of small gradients across many layers leads to an exponentially smaller gradient by the time it reaches the initial layers. This makes it very difficult for these layers to learn, leading to a network that only updates its weights significantly in the last few layers, effectively hindering the model's ability to learn complex patterns.
+
+#### **How to Mitigate It:**
+1. **Use of ReLU and its Variants**: ReLU and its variants like Leaky ReLU help alleviate the vanishing gradient problem by having a gradient of 1 for positive inputs, ensuring that the gradient does not vanish as it propagates through the network.
+  
+2. **Batch Normalization**: This technique normalizes the inputs to each layer, ensuring that they have a consistent scale, which can reduce the likelihood of the gradients vanishing.
+  
+3. **Gradient Clipping**: This technique involves setting a threshold for the gradients during backpropagation. If the gradient exceeds this threshold, it is clipped to the maximum value, preventing it from becoming too small or too large.
+
+4. **Use of Advanced Optimizers**: Optimizers like Adam or RMSprop, which adapt learning rates during training, can also help in addressing the vanishing gradient problem by adjusting the step sizes based on the gradient’s history.
+
+Understanding and addressing the vanishing gradient problem is crucial for successfully training deep neural networks, allowing them to learn efficiently across all layers.
+
 
 
 
