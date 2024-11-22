@@ -639,7 +639,6 @@ Where $\eta$ is the learning rate.
 
 ## Day 15: Different Types of Activation Functions 
 
-### Different Types of Activation Functions
 
 Activation functions are crucial components in neural networks, introducing non-linearity into the model, which allows the network to learn complex patterns. Here are the common types of activation functions:
 
