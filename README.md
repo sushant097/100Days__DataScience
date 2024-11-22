@@ -672,8 +672,10 @@ Activation functions are crucial components in neural networks, introducing non-
    
 
    $\text{ELU}(x)$ = 
-   $\begin{cases} x & \text{if } x > 0 \\ \alpha(e^x - 1) & \text{if } x \leq 0 
-   \end{cases}$
+   $$
+   \begin{cases} x & \text{if } x > 0 \\ \alpha(e^x - 1) & \text{if } x \leq 0 
+   \end{cases}
+   $$
 
    - **Range**: (-α, ∞) where α is a constant.
    - **Characteristics**: ELU is similar to ReLU but tends to push mean unit activations closer to zero, which speeds up learning. The exponential component allows the function to output negative values, reducing the bias shift during training.
