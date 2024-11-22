@@ -670,7 +670,9 @@ Activation functions are crucial components in neural networks, introducing non-
 6. **ELU (Exponential Linear Unit) Activation Function**
    - **Equation**: $\text{ELU}(x)$ = 
    $$
-   \begin{cases} x & \text{if } x > 0 \\ \alpha(e^x - 1) & \text{if } x \leq 0 \end{cases}
+   \begin{cases}
+       x & \text{if } x > 0 \\ \alpha(e^x - 1) & \text{if } x \leq 0 
+   \end{cases}
    $$
 
    - **Range**: (-α, ∞) where α is a constant.
