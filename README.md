@@ -776,9 +776,6 @@ The above visualization illustrates how different optimizers traverse the loss s
    - Adjusts learning rates adaptively, leading to faster and stable convergence.
    - The trajectory shows minimal oscillation compared to SGD.
 
-7. **Adam (Blue)**:
-   - Combines the advantages of Momentum and RMSprop, showing fast, smooth, and efficient convergence.
-   - The trajectory is direct, with minimal oscillation, highlighting its robustness in complex loss landscapes.
 
 
 ### **Key Insights from the Visualization**
