@@ -750,7 +750,7 @@ Optimizers play a critical role in training neural networks. They adjust the mod
 ![image](https://github.com/user-attachments/assets/8b97c8b8-350b-48be-ab41-09982992ac72)
 
 ### **Explanation of the Figure**
-The uploaded image illustrates how different optimizers traverse the loss surface to reach the global minimum. Here’s a breakdown of each optimizer’s trajectory:
+The above visualization illustrates how different optimizers traverse the loss surface to reach the global minimum. Here’s a breakdown of each optimizer’s trajectory:
 
 1. **SGD (Red)**:
    - Displays zig-zagging behavior due to noisy gradients.
