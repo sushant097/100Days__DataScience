@@ -465,18 +465,14 @@ PCA starts with the **covariance matrix** of your data, which summarizes the rel
    PCA is affected by the scale of the data, so you start by standardizing your data (mean = 0, variance = 1 for each feature).
    
 2. **Compute the Covariance Matrix**: 
-   From the standardized data, compute the covariance matrix $ \mathbf{C} $, which is:
-   $
-   \mathbf{C} = \frac{1}{n-1} \mathbf{X}^T \mathbf{X}
-   $
-   where $ \mathbf{X} $ is the matrix of your standardized data.
+   From the standardized data, compute the covariance matrix $C$, which is:
+   $C = \frac{1}{n-1} X^T X$
+   where $X$ is the matrix of your standardized data.
 
 3. **Find Eigenvalues and Eigenvectors**: 
-   Next, we solve the following equation for eigenvalues $ \lambda $ and eigenvectors $ \mathbf{v} $:
-   $
-   \mathbf{C} \mathbf{v} = \lambda \mathbf{v}
-   $
-   Here, $ \mathbf{v} $ is the eigenvector (a direction in the feature space), and $ \lambda $ is the eigenvalue (the variance captured by that direction). This equation is essentially saying that when the covariance matrix $ \mathbf{C} $ is applied to an eigenvector $ \mathbf{v} $, the result is a scaled version of $ \mathbf{v} $, scaled by $ \lambda $.
+   Next, we solve the following equation for eigenvalues $ \lambda $ and eigenvectors $v$:
+   $C v$ = $\lambda v$
+   Here, $v$ is the eigenvector (a direction in the feature space), and $ \lambda $ is the eigenvalue (the variance captured by that direction). This equation is essentially saying that when the covariance matrix $C$ is applied to an eigenvector $v$, the result is a scaled version of $v$, scaled by $\lambda$.
 
 4. **Select Principal Components**: 
    - Sort the eigenvalues in descending order. The eigenvectors corresponding to the largest eigenvalues are the principal components, as they capture the most variance.
@@ -704,6 +700,92 @@ The **vanishing gradient problem** is a major issue that occurs during the train
 4. **Use of Advanced Optimizers**: Optimizers like Adam or RMSprop, which adapt learning rates during training, can also help in addressing the vanishing gradient problem by adjusting the step sizes based on the gradient’s history.
 
 Understanding and addressing the vanishing gradient problem is crucial for successfully training deep neural networks, allowing them to learn efficiently across all layers.
+
+
+
+## Day 16:  Different Types of Optimizers — How is Adam Optimizer Different from RMSprop?
+
+Optimizers play a critical role in training neural networks. They adjust the model parameters iteratively to minimize the loss function. Let’s explore some commonly used optimizers and analyze the visual representation in the uploaded image.
+
+
+### **Common Optimizers**
+#### 1. **Gradient Descent (GD)**
+   - **Overview**: Updates parameters using the entire dataset to calculate gradients.
+   - **Strength**: Provides a global view of the loss landscape.
+   - **Weakness**: Computationally expensive and slow convergence, especially for large datasets.
+
+#### 2. **Stochastic Gradient Descent (SGD)**
+   - **Overview**: Updates parameters using a single data sample at a time.
+   - **Strength**: Faster updates and computationally efficient.
+   - **Weakness**: Highly noisy updates can cause the optimization path to fluctuate, leading to slower convergence.
+
+#### 3. **Momentum**
+   - **Overview**: Adds a fraction of the previous update (momentum term) to the current update, smoothing the optimization path.
+   - **Strength**: Reduces oscillations and accelerates convergence in the relevant direction.
+   - **Weakness**: May overshoot the optimal point if not properly tuned.
+
+#### 4. **RMSprop (Root Mean Square Propagation)**
+   - **Overview**: Scales the learning rate for each parameter by the exponentially decaying average of squared gradients.
+   - **Strength**: Adapts learning rates, prevents vanishing gradients, and is effective in non-stationary settings.
+   - **Weakness**: Only considers the second moment, which may lead to biased updates in some scenarios.
+
+#### 5. **Adam (Adaptive Moment Estimation)**
+   - **Overview**: Combines the benefits of Momentum and RMSprop by considering both the first moment (mean) and second moment (variance) of gradients.
+   - **Strength**: Robust and adaptive, making it highly effective for deep learning models.
+   - **Weakness**: Requires more hyperparameter tuning compared to RMSprop.
+
+
+
+### **Adam vs. RMSprop**
+| Feature               | RMSprop                         | Adam                            |
+|-----------------------|---------------------------------|---------------------------------|
+| **Learning Rate**     | Adjusts based on squared gradients | Adjusts based on mean and variance of gradients |
+| **Update Strategy**   | Uses only the second moment     | Combines first and second moments |
+| **Convergence**       | Stable                         | Faster and robust |
+| **Strengths**         | Handles non-stationary gradients well | Effective in noisy and sparse gradients |
+| **Weaknesses**        | Limited by using only one moment | Slightly more computationally expensive |
+
+
+**Different optimizers visualization:**
+![image](https://github.com/user-attachments/assets/8b97c8b8-350b-48be-ab41-09982992ac72)
+
+### **Explanation of the Figure**
+The uploaded image illustrates how different optimizers traverse the loss surface to reach the global minimum. Here’s a breakdown of each optimizer’s trajectory:
+
+1. **SGD (Red)**:
+   - Displays zig-zagging behavior due to noisy gradients.
+   - Takes longer to converge as it does not adapt the learning rate.
+
+2. **Momentum (Green)**:
+   - Accelerates in the relevant direction, showing a smoother trajectory than SGD.
+   - Reduces oscillations, allowing faster convergence.
+
+3. **NAG (Nesterov Accelerated Gradient)**:
+   - Improves upon Momentum by looking ahead at the future position.
+   - Exhibits faster convergence with smoother movement compared to basic Momentum.
+
+4. **Adagrad (Purple)**:
+   - Scales the learning rate for each parameter based on its historical gradient.
+   - Converges steadily but slows down significantly as it accumulates gradients.
+
+5. **Adadelta (Yellow)**:
+   - Similar to RMSprop, adapts learning rates without requiring a global learning rate.
+   - Exhibits a stable and smooth trajectory.
+
+6. **RMSprop (Cyan)**:
+   - Adjusts learning rates adaptively, leading to faster and stable convergence.
+   - The trajectory shows minimal oscillation compared to SGD.
+
+7. **Adam (Blue)**:
+   - Combines the advantages of Momentum and RMSprop, showing fast, smooth, and efficient convergence.
+   - The trajectory is direct, with minimal oscillation, highlighting its robustness in complex loss landscapes.
+
+
+### **Key Insights from the Visualization**
+- **SGD** struggles with noisy updates, making it inefficient for complex loss surfaces.
+- **Momentum** and **NAG** improve convergence by leveraging past gradients.
+- Adaptive optimizers like **RMSprop** and **Adam** provide the best performance by dynamically adjusting learning rates, ensuring smoother and faster convergence.
+- **Adam** is the most versatile, handling diverse scenarios effectively, which makes it a popular choice for training deep learning models.
 
 
 
