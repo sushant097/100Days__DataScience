@@ -824,17 +824,6 @@ Regularization techniques are used to reduce overfitting by adding a penalty ter
 
 The figure visualizes the contours of a loss function along with the constraints introduced by different regularization norms:
 
-1. **Contours of the Loss Function**:
-   - Represented as ellipses, these indicate the error surface of the optimization problem.
-   - The goal is to minimize the loss function while satisfying the constraints imposed by the regularization term.
-
-2. **Regularization Constraints**:
-   - Each regularization technique imposes a geometric constraint on the optimization process.
-   - The optimal solution $\theta_{opt}$ is the point where the loss function contour first intersects with the constraint boundary.
-
-
-### Panels in the Figure
-
 #### **1. L1 Norm (Left Panel: Sparsity Inducing)**:
    - **Shape**: The constraint region is a diamond (or rhombus) because the L1 norm defines the sum of absolute values of coefficients, $$|w_1| + |w_2| \leq t$$.
    - **Impact**:
