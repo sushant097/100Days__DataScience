@@ -798,17 +798,17 @@ Regularization techniques are used to reduce overfitting by adding a penalty ter
 
 1. **L1 Regularization (Lasso)**:
    - Adds the absolute value of the coefficients as a penalty term to the loss function.
-   - **Equation**: $ Loss = Loss_{original} + \lambda \sum |w_i| $
+   - **Equation**: $$Loss = Loss_{original} + \lambda \sum |w_i| $$
    - Encourages sparsity, often resulting in some coefficients becoming exactly zero, effectively performing feature selection.
 
 2. **L2 Regularization (Ridge)**:
    - Adds the squared value of the coefficients as a penalty term.
-   - **Equation**: $ Loss = Loss_{original} + \lambda \sum w_i^2 $
+   - **Equation**: $$Loss = Loss_{original} + \lambda \sum w_i^2 $$
    - Shrinks the coefficients but does not make them exactly zero, reducing multicollinearity.
 
 3. **Elastic Net**:
    - Combines L1 and L2 regularization.
-   - **Equation**: $ Loss = Loss_{original} + \lambda_1 \sum |w_i| + \lambda_2 \sum w_i^2 $
+   - **Equation**: $$Loss = Loss_{original} + \lambda_1 \sum |w_i| + \lambda_2 \sum w_i^2$$
    - Balances the benefits of L1 and L2.
 
 ### Why Regularization is Important
@@ -830,20 +830,20 @@ The figure visualizes the contours of a loss function along with the constraints
 
 2. **Regularization Constraints**:
    - Each regularization technique imposes a geometric constraint on the optimization process.
-   - The optimal solution ($ \theta_{opt} $) is the point where the loss function contour first intersects with the constraint boundary.
+   - The optimal solution $\theta_{opt}$ is the point where the loss function contour first intersects with the constraint boundary.
 
 
 ### Panels in the Figure
 
 #### **1. L1 Norm (Left Panel: Sparsity Inducing)**:
-   - **Shape**: The constraint region is a diamond (or rhombus) because the L1 norm defines the sum of absolute values of coefficients, $ |w_1| + |w_2| \leq t $.
+   - **Shape**: The constraint region is a diamond (or rhombus) because the L1 norm defines the sum of absolute values of coefficients, $$|w_1| + |w_2| \leq t$$.
    - **Impact**:
      - The diamond shape encourages sparsity because it is more likely to touch the contour at an axis, resulting in one of the coefficients being exactly zero.
      - Leads to sparse solutions where irrelevant features are automatically excluded.
    - **Application**: Feature selection, as in Lasso regression.
 
 #### **2. L2 Norm (Middle Panel: Weight Sharing)**:
-   - **Shape**: The constraint region is a circle (or sphere in higher dimensions) because the L2 norm defines the sum of squared coefficients, $ w_1^2 + w_2^2 \leq t $.
+   - **Shape**: The constraint region is a circle (or sphere in higher dimensions) because the L2 norm defines the sum of squared coefficients, $$w_1^2 + w_2^2 \leq t$$.
    - **Impact**:
      - The circular constraint region shrinks the coefficients smoothly towards zero but does not make them exactly zero.
      - Encourages weight sharing among all features.
