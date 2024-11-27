@@ -817,11 +817,7 @@ Regularization techniques are used to reduce overfitting by adding a penalty ter
 - Encourages simpler models that are easier to interpret.
 
 
-
-========
-
-
-Visualization of 3 regularization: 
+### Comparision figure: 
 ![](images/Day16_regularization_concepts.png)
 
 ### Understanding the Figure
