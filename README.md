@@ -855,5 +855,113 @@ The figure visualizes the contours of a loss function along with the constraints
    - Provides flexibility to balance sparsity and coefficient shrinkage, making it highly versatile for various datasets.
 
 
+
+# Day 17: Ensemble Learning
+
+Ensemble learning is a powerful machine learning technique that combines predictions from multiple models to improve accuracy and robustness. 
+
+### **1. Bagging (Bootstrap Aggregating) (e.g., Random Forest)**
+
+- **Concept**: Bagging reduces variance by creating multiple independent models and averaging their predictions (for regression) or taking a majority vote (for classification).
+- **Process**:
+  1. Create multiple datasets by sampling with replacement from the original dataset.
+  2. Train a base model (e.g., decision tree) on each dataset.
+  3. Combine predictions using averaging or voting.
+- **Popular Algorithms**: Random Forest.
+
+#### **Mathematical Representation**:
+Given a dataset $$ D = \{(x_i, y_i)\}_{i=1}^N $$, bagging trains  $M$ models on bootstrap samples $D_m$ and combines predictions:
+$$
+\hat{y} = \frac{1}{M} \sum_{m=1}^M \hat{y}_m
+$$
+
+
+
+- **Strengths**:
+  - Handles high variance well by reducing overfitting.
+  - Works well with unbalanced datasets.
+  - Performs better when individual models are unstable, such as decision trees.
+- **Use Cases**:
+  1. **Medical Diagnosis**: Disease prediction with a large number of features.
+  2. **Fraud Detection**: Identifying fraudulent transactions where the data is unbalanced.
+  3. **Image Classification**: Feature extraction and classification tasks.
+
+
+
+### **2. Boosting (e.g., AdaBoost, Gradient Boosting)**
+
+- **Concept**: Boosting reduces bias by sequentially training models. Each model corrects the errors of its predecessor.
+- **Process**:
+  1. Train a weak learner on the original data.
+  2. Adjust the weights of samples based on errors (misclassified samples get higher weights).
+  3. Combine all weak learners into a strong model.
+- **Popular Algorithms**: AdaBoost, Gradient Boosting, XGBoost.
+
+#### **Mathematical Representation**:
+For $ M $ weak learners:
+$$
+\hat{y} = \sum_{m=1}^M \alpha_m \cdot h_m(x)
+$$
+where $\alpha_m $ is the weight for the $$ m $$-th weak learner, and $h_m(x)$ is the prediction of the $m$ -th learner.
+
+
+- **Strengths**:
+  - Focuses on reducing bias by correcting the mistakes of previous models.
+  - Effective for datasets with complex patterns.
+  - Can handle weak learners and turn them into strong learners.
+- **Use Cases**:
+  1. **Financial Risk Modeling**: Predicting loan defaults.
+  2. **Customer Churn Prediction**: Identifying customers likely to leave.
+  3. **Natural Language Processing**: Sentiment analysis and spam filtering.
+
+### Key Differences Between Bagging and Boosting:
+
+| **Aspect**       | **Bagging**                          | **Boosting**                         |
+|-------------------|--------------------------------------|---------------------------------------|
+| **Objective**    | Reduce variance                     | Reduce bias                          |
+| **Model Training** | Independent                         | Sequential, dependent                 |
+| **Weighting**    | Equal weights for all models        | Higher weight for better models       |
+| **Popular Example** | Random Forest                     | AdaBoost, Gradient Boosting           |
+
+
+### Comparision visualization:
+
+The code for this visualization is given [here](./Implementation/Day17/ensemble_comparision.py)
+
+![](images/comparision_ensemble.png)
+
+### **Explanation of the Figure**
+
+The figure compares the performance of **Random Forest (Bagging)** and **AdaBoost (Boosting)** based on two metrics:
+1. **Accuracy (%)**: Shown as horizontal bars, where higher values indicate better classification performance.
+   - Random Forest achieved an accuracy of **85.7%**.
+   - AdaBoost achieved an accuracy of **82.0%**.
+2. **Log Loss**: Represented as a red dashed line with markers, where lower values indicate better calibration of predicted probabilities.
+   - Random Forest had a log loss of **0.352**, indicating better-calibrated predictions.
+   - AdaBoost had a log loss of **0.649**, showing less accurate probability predictions compared to Random Forest.
+
+---
+
+### **Key Observations**
+1. **Accuracy**:
+   - Random Forest outperformed AdaBoost in terms of accuracy by a margin of 3.7%.
+2. **Log Loss**:
+   - Random Forest also had a significantly lower log loss, showing that its predicted probabilities were closer to the actual labels.
+
+This comparison highlights that for this dataset, Random Forest (Bagging) performs better than AdaBoost (Boosting) in both accuracy and log loss.
+
+
+### **Use Cases of Bagging and Boosting**
+
+
+
+
+
+
+#### **Results**
+- **Random Forest** achieved higher accuracy and lower log loss, making it a better choice for this dataset.
+- **AdaBoost** might be more suitable for datasets with higher bias and when sequential learning is beneficial.
+
+
 ------
 Happy Learning! 📊
