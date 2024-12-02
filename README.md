@@ -952,7 +952,7 @@ The figure compares the performance of **Random Forest (Bagging)** and **AdaBoos
 
 This comparison highlights that for this classification dataset, Random Forest (Bagging) performs better than AdaBoost (Boosting) in both accuracy and log loss.
 
-
+**LinkedIn Summary Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-ensemblelearning-activity-7269220974611337217-RkZU?utm_source=share&utm_medium=member_desktop)**
 
 ------
 Happy Learning! 📊
