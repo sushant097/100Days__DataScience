@@ -902,7 +902,7 @@ For $ M $ weak learners:
 $$
 \hat{y} = \sum_{m=1}^M \alpha_m \cdot h_m(x)
 $$
-where $\alpha_m $ is the weight for the $$ m $$-th weak learner, and $h_m(x)$ is the prediction of the $m$ -th learner.
+where $\alpha_m $ is the weight for the $m$ -th weak learner, and $h_m(x)$ is the prediction of the $m$ -th learner.
 
 
 - **Strengths**:
@@ -926,11 +926,11 @@ where $\alpha_m $ is the weight for the $$ m $$-th weak learner, and $h_m(x)$ is
 
 ### Comparision visualization:
 
-The code for this visualization is given [here](./Implementation/Day17/ensemble_comparision.py)
-
 ![](images/comparision_ensemble.png)
 
-### **Explanation of the Figure**
+The code for this visualization is given [here](./Implementation/Day17/ensemble_comparision.py)
+
+#### **Explanation of the Figure**
 
 The figure compares the performance of **Random Forest (Bagging)** and **AdaBoost (Boosting)** based on two metrics:
 1. **Accuracy (%)**: Shown as horizontal bars, where higher values indicate better classification performance.
@@ -948,19 +948,8 @@ The figure compares the performance of **Random Forest (Bagging)** and **AdaBoos
 2. **Log Loss**:
    - Random Forest also had a significantly lower log loss, showing that its predicted probabilities were closer to the actual labels.
 
-This comparison highlights that for this dataset, Random Forest (Bagging) performs better than AdaBoost (Boosting) in both accuracy and log loss.
+This comparison highlights that for this classification dataset, Random Forest (Bagging) performs better than AdaBoost (Boosting) in both accuracy and log loss.
 
-
-### **Use Cases of Bagging and Boosting**
-
-
-
-
-
-
-#### **Results**
-- **Random Forest** achieved higher accuracy and lower log loss, making it a better choice for this dataset.
-- **AdaBoost** might be more suitable for datasets with higher bias and when sequential learning is beneficial.
 
 
 ------
