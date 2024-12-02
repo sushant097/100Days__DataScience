@@ -870,10 +870,9 @@ Ensemble learning is a powerful machine learning technique that combines predict
 - **Popular Algorithms**: Random Forest.
 
 #### **Mathematical Representation**:
-Given a dataset $$ D = \{(x_i, y_i)\}_{i=1}^N $$, bagging trains  $M$ models on bootstrap samples $D_m$ and combines predictions:
-$$
-\hat{y} = \frac{1}{M} \sum_{m=1}^M \hat{y}_m
-$$
+Given a dataset $D = \{(x_i, y_i)\}_{i=1}^N$, bagging trains  $M$ models on bootstrap samples $D_m$ and combines predictions:
+
+$$\hat{y} = \frac{1}{M} \sum_{m=1}^M \hat{y}_m$$
 
 
 
@@ -898,10 +897,10 @@ $$
 - **Popular Algorithms**: AdaBoost, Gradient Boosting, XGBoost.
 
 #### **Mathematical Representation**:
-For $ M $ weak learners:
-$$
-\hat{y} = \sum_{m=1}^M \alpha_m \cdot h_m(x)
-$$
+For $M $ weak learners:
+
+$$\hat{y} = \sum_{m=1}^M \alpha_m \cdot h_m(x)$$
+
 where $\alpha_m $ is the weight for the $m$ -th weak learner, and $h_m(x)$ is the prediction of the $m$ -th learner.
 
 
