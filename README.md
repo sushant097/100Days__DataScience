@@ -901,7 +901,7 @@ For $M$ weak learners:
 
 $$\hat{y} = \sum_{m=1}^M \alpha_m \cdot h_m(x)$$
 
-where $\alpha_m $ is the weight for the $m$ -th weak learner, and $h_m(x)$ is the prediction of the $m$ -th learner.
+where $\alpha_m$ is the weight for the $m$ -th weak learner, and $h_m(x)$ is the prediction of the $m$ -th learner.
 
 
 - **Strengths**:
