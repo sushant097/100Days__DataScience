@@ -897,7 +897,7 @@ $$\hat{y} = \frac{1}{M} \sum_{m=1}^M \hat{y}_m$$
 - **Popular Algorithms**: AdaBoost, Gradient Boosting, XGBoost.
 
 #### **Mathematical Representation**:
-For $M $ weak learners:
+For $M$ weak learners:
 
 $$\hat{y} = \sum_{m=1}^M \alpha_m \cdot h_m(x)$$
 
@@ -922,6 +922,9 @@ where $\alpha_m $ is the weight for the $m$ -th weak learner, and $h_m(x)$ is th
 | **Weighting**    | Equal weights for all models        | Higher weight for better models       |
 | **Popular Example** | Random Forest                     | AdaBoost, Gradient Boosting           |
 
+### Pictorial Comparision:
+![image](https://github.com/user-attachments/assets/9f3645dd-6d35-4a44-ad01-dafcdd30fe47)
+Image Credit: *Encord blog*
 
 ### Comparision visualization:
 
