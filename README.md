@@ -954,5 +954,150 @@ This comparison highlights that for this classification dataset, Random Forest (
 
 **LinkedIn Summary Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-ensemblelearning-activity-7269220974611337217-RkZU?utm_source=share&utm_medium=member_desktop)**
 
+
+# Day 18: Hyperparameter Tuning with Optuna
+
+
+## **What is Optuna?**
+Optuna is an open-source, state-of-the-art framework for hyperparameter optimization. It provides efficient tools for automatically searching for the best hyperparameters in machine learning models, enabling users to achieve better performance with minimal effort.
+
+### **Key Features of Optuna**
+1. **Efficient Optimization**: Utilizes advanced techniques like Tree-structured Parzen Estimator (TPE) for faster convergence.
+2. **Dynamic Search Spaces**: Allows for conditional hyperparameter search, adjusting parameters dynamically based on earlier choices.
+3. **Multi-Objective Optimization**: Supports optimizing multiple objectives simultaneously.
+4. **Integrated Visualizations**: Built-in tools for analyzing optimization history, parameter importance, and more.
+5. **Framework Compatibility**: Seamlessly integrates with libraries like LightGBM, XGBoost, PyTorch, TensorFlow, and Scikit-Learn.
+
+
+## **Why Do We Need Hyperparameter Tuning?**
+Hyperparameters control the behavior of machine learning models. Properly tuning these parameters can:
+- Significantly improve model performance.
+- Reduce overfitting or underfitting.
+- Optimize training efficiency.
+- Balance trade-offs between conflicting objectives (e.g., accuracy vs. inference time).
+
+However, manually tuning hyperparameters is time-consuming and inefficient. Optuna automates this process, making it faster and more robust.
+
+### **Kaggle Notebook**
+All detailed implementations and examples are available in the Kaggle Notebook:
+[**Link to Kaggle Notebook**](https://www.kaggle.com/code/sushant097/optuna-hyperparameter-tuning)
+
+
+### **1. Fine-Tuning LightGBM**
+I showed how to fine-tune a LightGBM model using Optuna, including:
+- Defining the search space for hyperparameters like learning rate, max depth, and number of leaves.
+- Incorporating early stopping to avoid unnecessary computation.
+- Visualizing optimization history and parameter importance.
+
+#### **Code Overview**:
+```python
+def objective(trial):
+    param = {
+        'objective': 'binary',
+        'metric': 'binary_logloss',
+        'learning_rate': trial.suggest_float('learning_rate', 1e-3, 0.1),
+        'num_leaves': trial.suggest_int('num_leaves', 10, 100),
+        'max_depth': trial.suggest_int('max_depth', 3, 10),
+        'feature_fraction': trial.suggest_float('feature_fraction', 0.5, 1.0),
+    }
+    model = lgb.train(
+        param,
+        train_data,
+        valid_sets=[test_data],
+        callbacks=[lgb.early_stopping(stopping_rounds=10)],
+        verbose_eval=False,
+    )
+    preds = model.predict(X_test)
+    accuracy = accuracy_score(y_test, (preds > 0.5).astype(int))
+    return 1 - accuracy
+```
+
+
+### **2. Visualization**
+Visualization is a critical part of analyzing optimization results. Optuna provides built-in tools for:
+- **Optimization History**: Tracks the performance improvement across trials.
+- **Parameter Importance**: Identifies which hyperparameters have the most impact on model performance.
+- **Parallel Coordinate Plot**: Shows relationships between multiple parameters and the objective.
+- **Slice Plot**: Displays the relationship between individual parameters and the objective.
+- **Pareto Front**: Visualizes trade-offs in multi-objective optimization.
+
+#### **Visualization Code Examples**:
+```python
+from optuna.visualization import plot_optimization_history, plot_param_importances
+
+# Plot optimization history
+plot_optimization_history(study).show()
+
+# Plot parameter importance
+plot_param_importances(study).show()
+```
+
+For environments like Kaggle where interactive plots may not render, we use Matplotlib-based alternatives.
+
+
+
+### **3. Multi-Objective Optimization**
+We explore optimizing multiple objectives simultaneously using Optuna's multi-objective framework. In our example:
+- **Objective 1**: Minimize prediction error.
+- **Objective 2**: Minimize computational cost (e.g., learning rate).
+
+#### **Key Steps**:
+1. Define a multi-objective function:
+    ```python
+    def multi_objective(trial):
+        param = {
+            'learning_rate': trial.suggest_float('learning_rate', 1e-3, 0.1),
+            'num_leaves': trial.suggest_int('num_leaves', 10, 100),
+        }
+        model = lgb.train(
+            param,
+            train_data,
+            valid_sets=[test_data],
+            callbacks=[lgb.early_stopping(stopping_rounds=10)],
+            verbose_eval=False,
+        )
+        accuracy = accuracy_score(y_test, (model.predict(X_test) > 0.5).astype(int))
+        return 1 - accuracy, 1 - param['learning_rate']
+    ```
+2. Optimize using Optuna:
+    ```python
+    multi_study = optuna.create_study(directions=["minimize", "minimize"])
+    multi_study.optimize(multi_objective, n_trials=50)
+    ```
+
+
+### **4. Dynamic Search Spaces**
+Dynamic search spaces allow conditional hyperparameter optimization. For example:
+- Use different ranges of `num_leaves` for `gbdt` and `dart` boosting types.
+
+#### **Code Example**:
+```python
+def dynamic_objective(trial):
+    boosting_type = trial.suggest_categorical('boosting_type', ['gbdt', 'dart'])
+    if boosting_type == 'gbdt':
+        num_leaves = trial.suggest_int('num_leaves', 10, 50)
+    else:
+        num_leaves = trial.suggest_int('num_leaves', 20, 100)
+
+    param = {
+        'boosting_type': boosting_type,
+        'num_leaves': num_leaves,
+        'learning_rate': trial.suggest_float('learning_rate', 1e-3, 0.1),
+    }
+    model = lgb.train(
+        param,
+        train_data,
+        valid_sets=[test_data],
+        callbacks=[lgb.early_stopping(stopping_rounds=10)],
+        verbose_eval=False,
+    )
+    preds = model.predict(X_test)
+    accuracy = accuracy_score(y_test, (preds > 0.5).astype(int))
+    return 1 - accuracy
+```
+
+
+
 ------
+
 Happy Learning! 📊
