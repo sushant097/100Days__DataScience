@@ -1032,12 +1032,12 @@ plot_optimization_history(study).show()
 plot_param_importances(study).show()
 ```
 
-For environments like Kaggle where interactive plots may not render, we use Matplotlib-based alternatives.
+For environments like Kaggle where interactive plots may not render, we can use Matplotlib-based alternatives.
 
 
 
 ### **3. Multi-Objective Optimization**
-We explore optimizing multiple objectives simultaneously using Optuna's multi-objective framework. In our example:
+We can explore optimizing multiple objectives simultaneously using Optuna's multi-objective framework. In our example:
 - **Objective 1**: Minimize prediction error.
 - **Objective 2**: Minimize computational cost (e.g., learning rate).
 
@@ -1097,6 +1097,7 @@ def dynamic_objective(trial):
 ```
 
 
+**LinkedIn Summary Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-optuna-activity-7269586671984152577-xP5C?utm_source=share&utm_medium=member_desktop)**
 
 ------
 
