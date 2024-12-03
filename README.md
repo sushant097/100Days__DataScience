@@ -7,28 +7,73 @@
 </p>
 
 
+# **Welcome to My 100 Days of Data Science Journey! 🚀**
 
-Welcome to my **100 Days of Data Science** journey! 🚀
-
-Over the following days, I'll be diving deep into data science, working on a variety of datasets, and exploring different topics within the field. Each time, I’ll be tackling new challenges, from data exploration and preprocessing to building and fine-tuning machine learning models. My goal is to document this journey and share my learnings, code, and insights with the community.
-
-## What's Inside
-
-- **Daily Projects**: Each time, you'll find a new project where I've applied data science techniques to solve a specific problem.
-- **Code and Notebooks**: All my code and Jupyter notebooks will be available here, so you can follow along or use them as a reference.
-- **Datasets**: Links to the datasets I’m using, along with a brief explanation of the problem statement and objectives.
-- **Learning Resources**: I’ll also be sharing articles, tutorials, and resources that I found helpful along the way.
+Over the next 100 days, I'll be diving deep into data science, tackling real-world challenges, and sharing my progress with the community. Each day will focus on different aspects of data science, from foundational topics to advanced concepts like MLOps. My goal is to document this journey, share my learnings, and build a valuable resource for data enthusiasts.
 
 
-## How to Use This Repository
+## **What's Inside**
 
-1. **Clone the Repository**: 
+### **Daily Projects**
+- Hands-on projects focused on solving real-world problems using data science techniques.
+- From data exploration and preprocessing to building and fine-tuning machine learning models.
+
+### **Key Topics Covered**
+Here's an outline of the topics I plan to explore during this challenge:
+- **Data Exploration and Visualization**: Understanding datasets, detecting patterns, and creating meaningful visualizations.
+- **Feature Engineering**: Crafting features to improve model performance.
+- **Machine Learning**: Building models for regression, classification, and clustering problems.
+- **Deep Learning**: Working with neural networks for computer vision and NLP tasks.
+- **Ensemble Learning**: Techniques like bagging, boosting, and stacking.
+- **MLOps Concepts**: Deploying machine learning models with best practices, version control, and monitoring.
+  - Model deployment using **Streamlit** and **FastAPI**.
+  - Workflow orchestration with **Airflow**.
+  - Experiment tracking with **MLflow**.
+  - Containerization using **Docker**.
+  - Automation with **GitHub Actions**.
+- **Advanced Machine Learning Topics**: Hyperparameter tuning, transfer learning, and explainable AI.
+- **Big Data and Scalability**: Using frameworks like Spark for large-scale data processing.
+- **NLP and Computer Vision**: Applying state-of-the-art models to text and image datasets.
+
+
+## **How to Use This Repository**
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/sushant097/100Days__DataScience.git
    ```
-2. **Navigate Through the Folders**: Each day’s project will have its own folder with detailed explanations and code.
-3. **Run the Notebooks**: If you want to try out the code yourself, simply open the notebooks and run them in your preferred environment. Also kaggle notebook link is provided in some cases. 
 
+2. **Navigate Through the Folders**:
+   Each day's project will have its own folder, complete with:
+   - A detailed explanation of the project.
+   - The dataset used.
+   - Relevant code and notebooks.
+
+3. **Run the Notebooks**:
+   Open the Jupyter Notebooks or check the provided Kaggle links to explore the projects and run the code yourself.
+
+
+## **Why This Challenge?**
+Data science is a vast field, and staying consistent is key to mastering it. Through this challenge, I aim to:
+- Build a portfolio of practical projects.
+- Learn and share best practices.
+- Deepen my understanding of end-to-end machine learning workflows, including MLOps.
+
+
+## **Learning Resources**
+Along the way, I'll also share:
+- Articles and tutorials that helped me learn new concepts.
+- Links to insightful resources for data science and MLOps.
+
+
+## **Daily Updates**
+Follow my journey on [LinkedIn](https://www.linkedin.com/in/susan-gautam/) where I share daily progress and insights.
+
+
+Feel free to suggest additional topics or share your thoughts on the projects. Let's learn and grow together! 🚀
+
+
+------
+------
 
 ## Day 1: Women's E-Commerce Clothing Reviews
 
