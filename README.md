@@ -1147,7 +1147,7 @@ def dynamic_objective(trial):
 
 # Day 19: **Selecting best model for the given dataset**
 
-This question evaluates the understanding of model selection, validation techniques, and performance metrics. There is not specific answer to this question. Selecting the best model involves several key steps:
+Selecting the best model involves several key steps:
 
 1. **Define the Objective:**
    - Understand the problem (classification, regression, etc.).
