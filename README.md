@@ -1175,7 +1175,7 @@ Selecting the best model involves several key steps:
    - Test the top-performing model on the test set to ensure it performs well on unseen data.
 
 ### Example:
-For a classification task, you could:
+For a classification task, we could:
 - Train Logistic Regression, Random Forest, and Gradient Boosting.
 - Use k-fold cross-validation with AUC-ROC as the metric.
 - Perform grid search on the Random Forest for hyperparameter tuning.
