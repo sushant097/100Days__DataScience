@@ -1185,7 +1185,7 @@ For a classification task, we could:
 
 ### **General code template:**
 
-Below is a general Python code snippet to select the best machine learning model for a dataset using scikit-learn. It includes training multiple models, evaluating them using cross-validation, tuning hyperparameters, and testing the final model.
+Below is a general  code snippet to select the best machine learning model for a dataset using scikit-learn. It includes training multiple models, evaluating them using cross-validation, tuning hyperparameters, and testing the final model.
 
 ```python
 import numpy as np
@@ -1262,6 +1262,9 @@ test_accuracy = accuracy_score(y_test, y_pred)
 print(f"\nBest Model Test AUC: {test_auc:.4f}")
 print(f"Best Model Test Accuracy: {test_accuracy:.4f}")
 ```
+
+#### **LinkedIn Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-modelselection-activity-7270911819253235713-4a3W?utm_source=share&utm_medium=member_desktop)**
+
 ------
 
 Happy Learning! 📊
