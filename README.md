@@ -1145,7 +1145,7 @@ def dynamic_objective(trial):
 **LinkedIn Summary Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-optuna-activity-7269586671984152577-xP5C?utm_source=share&utm_medium=member_desktop)**
 
 
-# Day 19: **How would you select the best model for your dataset?**
+# Day 19: **Selecting best model for the given dataset**
 
 This question evaluates the understanding of model selection, validation techniques, and performance metrics. There is not specific answer to this question. Selecting the best model involves several key steps:
 
