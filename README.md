@@ -1183,7 +1183,8 @@ For a classification task, you could:
 - Test it on the test set to confirm its performance. 
 
 
-**General code template:**
+### **General code template:**
+
 Below is a general Python code snippet to select the best machine learning model for a dataset using scikit-learn. It includes training multiple models, evaluating them using cross-validation, tuning hyperparameters, and testing the final model.
 
 ```python
