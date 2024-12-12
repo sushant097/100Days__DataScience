@@ -1438,6 +1438,8 @@ This comparison highlights the trade-offs between stability and speed across the
 - **Stochastic Gradient Descent**: Exhibits noisy convergence due to updates being made for each data point.
 - **Mini-Batch Gradient Descent**: Balances between stability and efficiency, showing faster convergence than Batch GD and smoother convergence than SGD.
 
+
+**Linked Post [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-ai-activity-7272825090931658752-BI_k?utm_source=share&utm_medium=member_desktop)**
 ------
 
 Happy Learning! 📊
