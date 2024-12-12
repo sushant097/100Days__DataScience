@@ -1265,6 +1265,179 @@ print(f"Best Model Test Accuracy: {test_accuracy:.4f}")
 
 #### **LinkedIn Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-modelselection-activity-7270911819253235713-4a3W?utm_source=share&utm_medium=member_desktop)**
 
+
+# Day 20: **Batch vs Stochastic vs Gradient Descent**
+
+The key difference between **Stochastic Gradient Descent (SGD)**, **Batch Gradient Descent (BGD)**, and **Mini-Batch Gradient Descent** lies in the way they compute the gradient and update the model parameters during the training process. Below is the explanation of each:
+
+
+
+### **1. Batch Gradient Descent (BGD)**
+
+**Logic**:  
+- Uses the **entire dataset** to compute the gradient at each iteration.  
+- Provides a more stable convergence path but is computationally expensive for large datasets.
+
+**Advantages**:
+- Stable convergence.
+- Less noise in gradient updates.
+
+**Disadvantages**:
+- Computationally expensive for large datasets.
+- Requires entire dataset to fit in memory.
+
+
+
+### **2. Stochastic Gradient Descent (SGD)**
+
+**Logic**:  
+- Updates parameters for **each training example** (single row of the dataset).  
+- Faster updates but introduces high variance (noisy path to convergence).
+
+**Advantages**:
+- Can escape local minima due to noisy updates.
+- Faster for very large datasets.
+
+**Disadvantages**:
+- Can be unstable (oscillations around the minimum).
+- Requires tuning of learning rates carefully.
+
+
+
+### **3. Mini-Batch Gradient Descent**
+
+**Logic**:  
+- Combines advantages of BGD and SGD by updating parameters on **small batches of data**.  
+- Reduces noise while still being computationally efficient.
+
+**Advantages**:
+- Faster convergence than SGD.
+- More stable than SGD due to reduced variance.
+
+**Disadvantages**:
+- Requires tuning batch size (common sizes: 32, 64, 128).
+- Still requires randomization to avoid poor updates.
+
+
+
+
+### **Key Differences**
+
+| Aspect                        | Batch Gradient Descent         | Stochastic Gradient Descent    | Mini-Batch Gradient Descent  |
+|-------------------------------|--------------------------------|---------------------------------|------------------------------|
+| **Data Used per Update**      | Entire Dataset                | One Example                    | Small Batch                 |
+| **Update Frequency**          | Once per epoch                | m times per epoch (m = samples)| n times per epoch (n = batches) |
+| **Computational Efficiency**  | Low for large datasets        | High                           | Balanced                    |
+| **Stability**                 | High (less noise)             | Low (high noise)               | Moderate                    |
+| **Convergence Speed**         | Slow                          | Fast                           | Fast                        |
+
+
+
+### **Summary**
+
+- **Batch Gradient Descent** is best for small datasets and provides stable convergence.  
+- **Stochastic Gradient Descent** is preferred for very large datasets when computational efficiency is key.  
+- **Mini-Batch Gradient Descent** is often the best trade-off, balancing speed and stability.
+
+
+
+**Code Example:**
+
+```python
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simulated Data
+np.random.seed(42)
+X = np.random.rand(100, 2) # 100 samples, 2 features
+y = 3 * X[:, 0] + 5 * X[:, 1]+ np.random.randn(100) * 0.5 # Linear relattion with noise
+
+
+# Batch Gradient Descent
+def batch_gradient_descent(X, y, lr=0.1, epochs=100):
+    m, n = X.shape
+    theta = np.zeros(n)
+    losses = []
+    for epoch in range(epochs):
+        gradients = (1/m) * X.T.dot(X.dot(theta) - y)
+        theta -= lr * gradients
+        loss = np.mean((X.dot(theta) - y) ** 2)
+        losses.append(loss)
+    return theta, losses
+
+# Stochastic Gradient Descent
+def stochastic_gradient_descent(X, y, lr=0.1, epochs=100):
+    m, n = X.shape
+    theta = np.zeros(n)
+    losses = []
+    for epoch in range(epochs):
+        total_loss = 0
+        for i in range(m):
+            xi = X[i, :].reshape(1, -1)
+            yi = y[i]
+            gradient = xi.T.dot(xi.dot(theta) - yi)
+            theta -= lr * gradient
+            total_loss += (xi.dot(theta) - yi) ** 2
+        losses.append(total_loss / m)
+    return theta, losses
+
+
+# Mini-Batch Gradient Descent
+def mini_batch_gradient_descent(X, y, lr=0.1, epochs=100, batch_size=10):
+    m, n = X.shape
+    theta = np.zeros(n)
+    losses = []
+    for epoch in range(epochs):
+        indices = np.random.permutation(m)
+        X_shuffled = X[indices]
+        y_shuffled = y[indices]
+        total_loss = 0
+        for i in range(0, m, batch_size):
+            X_batch = X_shuffled[i:i+batch_size]
+            y_batch = y_shuffled[i:i+batch_size]
+            gradient = (1/batch_size) * X_batch.T.dot(X_batch.dot(theta) - y_batch)
+            theta -= lr * gradient
+            total_loss += np.sum((X_batch.dot(theta) - y_batch) ** 2)
+        losses.append(total_loss / m)
+    return theta, losses
+
+
+# Run all methods
+_, losses_batch = batch_gradient_descent(X, y)
+_, losses_sgd = stochastic_gradient_descent(X, y)
+_, losses_mini_batch = mini_batch_gradient_descent(X, y)
+
+# Adjusting the plot to zoom in on fluctuations and improving visibility
+plt.figure(figsize=(12, 8))
+
+# Focus on the first 50 epochs for better visualization of fluctuations
+epochs_to_display = 50
+
+# Plot convergence
+plt.plot(losses_batch[:epochs_to_display], label="Batch Gradient Descent", linewidth=2)
+plt.plot(losses_sgd[:epochs_to_display], label="Stochastic Gradient Descent", linestyle='--', linewidth=2)
+plt.plot(losses_mini_batch[:epochs_to_display], label="Mini-Batch Gradient Descent", linestyle='-.', linewidth=2)
+
+plt.xlabel("Epochs (First 50)")
+plt.ylabel("Mean Squared Error (Loss)")
+plt.title("Convergence of Gradient Descent Methods (Zoomed-In View)")
+plt.legend()
+plt.grid(alpha=0.5)
+plt.show()
+
+```
+
+**Comparision Plot:**
+
+![](images/gradient_descent_methods_compare.png)
+
+This comparison highlights the trade-offs between stability and speed across the three methods. The graph above illustrates the convergence patterns for Batch Gradient Descent, Stochastic Gradient Descent, and Mini-Batch Gradient Descent:
+
+- **Batch Gradient Descent**: Shows smooth and stable convergence due to using the entire dataset for updates.
+- **Stochastic Gradient Descent**: Exhibits noisy convergence due to updates being made for each data point.
+- **Mini-Batch Gradient Descent**: Balances between stability and efficiency, showing faster convergence than Batch GD and smoother convergence than SGD.
+
 ------
 
 Happy Learning! 📊
