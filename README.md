@@ -1558,9 +1558,8 @@ Cross-Entropy Loss measures the difference between two probability distributions
 
 ### **Formula**:  
 For a single sample in classification:
-$$
-\text{Loss} = -\sum_{i=1}^{C} y_i \log(\hat{y}_i)
-$$
+$$\text{Loss} = -\sum_{i=1}^{C} y_i \log(\hat{y}_i)$$
+
 Where:
 - $C$: Number of classes
 - $y_i\$: Actual class label (1 for the true class, 0 otherwise)
@@ -1584,9 +1583,7 @@ MSE Loss measures the average squared difference between actual and predicted va
 
 ### **Formula**:  
 For a single sample in regression:
-$$
-\text{Loss} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-$$
+$$\text{Loss} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 Where:
 - $y_i$: Actual value
