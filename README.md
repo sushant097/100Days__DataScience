@@ -1539,6 +1539,7 @@ plt.show()
 2. t-SNE excels at visualization and cluster identification but is computationally expensive and less interpretable.
 3. Choosing between PCA and t-SNE depends on the objective: **preprocessing** (PCA) vs. **visualization** (t-SNE).
 
+**LinkedIn Post: [here](https://www.linkedin.com/posts/susan-gautam_100daysofdatascience-datascience-machinelearning-activity-7273528134468063232-bvD5?utm_source=share&utm_medium=member_desktop)**
 
 ------
 
