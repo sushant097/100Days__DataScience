@@ -1541,6 +1541,169 @@ plt.show()
 
 **LinkedIn Post: [here](https://www.linkedin.com/posts/susan-gautam_100daysofdatascience-datascience-machinelearning-activity-7273528134468063232-bvD5?utm_source=share&utm_medium=member_desktop)**
 
+
+
+# Day 22: **Differences Between Cross-Entropy Loss and Mean Squared Error (MSE) Loss **
+
+
+
+Both **Cross-Entropy Loss** and **Mean Squared Error (MSE) Loss** are used to optimize machine learning models, but they are suited for different tasks. Here's a detailed comparison:
+
+
+
+## **1. Cross-Entropy Loss**
+
+#### **Definition**:  
+Cross-Entropy Loss measures the difference between two probability distributions: the true labels (one-hot encoded) and the predicted probabilities.
+
+### **Formula**:  
+For a single sample in classification:
+$$
+\text{Loss} = -\sum_{i=1}^{C} y_i \log(\hat{y}_i)
+$$
+Where:
+- $C$: Number of classes
+- $y_i\$: Actual class label (1 for the true class, 0 otherwise)
+- $\hat{y}_i$: Predicted probability for class \(i\)
+
+### **Characteristics**:
+- Used for **classification tasks**.
+- Ensures predicted probabilities are close to the true labels.
+- Penalizes incorrect predictions more severely when they are far from the true class (e.g., predicting 0.01 instead of 1).
+
+### **When to Use?**
+- For multi-class classification problems (e.g., image classification).
+- Use with models that output probabilities, like softmax for multi-class or sigmoid for binary classification.
+
+
+
+##  **2. Mean Squared Error (MSE) Loss**
+
+### **Definition**:  
+MSE Loss measures the average squared difference between actual and predicted values.
+
+### **Formula**:  
+For a single sample in regression:
+$$
+\text{Loss} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$
+
+Where:
+- $y_i$: Actual value
+- $$\hat{y}_i$$: Predicted value
+- $n$: Number of samples
+
+### **Characteristics**:
+- Used for **regression tasks**.
+- Penalizes large errors more heavily than small ones due to squaring.
+- Sensitive to outliers, as they contribute disproportionately to the loss.
+
+### **When to Use?**
+- For continuous target variables (e.g., predicting house prices, temperatures).
+- Ideal when you care about minimizing large deviations in predictions.
+
+
+
+###  **Key Differences**
+
+| Aspect                  | Cross-Entropy Loss                           | Mean Squared Error (MSE) Loss              |
+|-------------------------|----------------------------------------------|--------------------------------------------|
+| **Primary Use**         | Classification tasks                        | Regression tasks                           |
+| **Output**              | Works with probabilities                    | Works with continuous values               |
+| **Penalty for Errors**  | Penalizes incorrect class predictions        | Penalizes large prediction errors          |
+| **Sensitivity to Outliers** | Robust for probabilities close to 1/0       | Highly sensitive due to squaring           |
+| **Target**              | Probability distributions (0-1)             | Continuous values                          |
+
+
+
+###  **Choosing the Right Loss Function**
+
+1. **Use Cross-Entropy Loss**:
+   - When solving **classification problems** (binary or multi-class).
+   - When the model's output is a probability distribution (softmax/sigmoid).
+
+2. **Use MSE Loss**:
+   - For **regression problems** where the target is continuous.
+   - When minimizing large prediction deviations is critical.
+
+
+
+### 💻 **Code Example**
+
+Below is a example illustrating both loss functions:
+
+```python
+# Re-importing libraries after environment reset
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate sample data for visualization
+y_true_class = np.array([1, 0, 1, 1])  # Binary classification ground truth
+y_pred_probs = np.linspace(0.01, 0.99, 100)  # Predicted probabilities
+
+y_true_reg = np.array([3.5, -0.5, 2.0, 7.0])  # Regression ground truth
+y_pred_vals = np.linspace(-1, 8, 100)  # Predicted values
+
+# Cross-Entropy Loss calculation
+cross_entropy_losses = -(
+    y_true_class[0] * np.log(y_pred_probs) +
+    (1 - y_true_class[0]) * np.log(1 - y_pred_probs)
+)
+
+# Mean Squared Error Loss calculation
+mse_losses = (y_pred_vals - y_true_reg[0])**2
+
+# Visualization
+plt.figure(figsize=(14, 6))
+
+# Cross-Entropy Loss
+plt.subplot(1, 2, 1)
+plt.plot(y_pred_probs, cross_entropy_losses, label="Cross-Entropy Loss", color="blue")
+plt.axvline(x=1, linestyle="--", color="gray", label="Correct Class (1)")
+plt.axvline(x=0, linestyle="--", color="gray", label="Correct Class (0)")
+plt.xlabel("Predicted Probability")
+plt.ylabel("Loss")
+plt.title("Cross-Entropy Loss Behavior")
+plt.legend()
+plt.grid(alpha=0.5)
+
+# Mean Squared Error Loss
+plt.subplot(1, 2, 2)
+plt.plot(y_pred_vals, mse_losses, label="MSE Loss", color="green")
+plt.axvline(x=y_true_reg[0], linestyle="--", color="red", label="Ground Truth")
+plt.xlabel("Predicted Value")
+plt.ylabel("Loss")
+plt.title("Mean Squared Error Loss Behavior")
+plt.legend()
+plt.grid(alpha=0.5)
+
+plt.tight_layout()
+plt.show()
+
+```
+
+**Visualization:**
+![](images/Day22_logloss_mse.png)
+
+Here is the visualization comparing the behaviors of **Cross-Entropy Loss** and **Mean Squared Error Loss**:
+
+1. **Cross-Entropy Loss Behavior**:
+   - The loss is minimal when the predicted probability aligns closely with the true class (1 or 0).
+   - The curve becomes steeper as the predicted probability deviates from the true class, indicating severe penalties for incorrect predictions.
+
+2. **Mean Squared Error (MSE) Loss Behavior**:
+   - The loss increases quadratically as the predicted value deviates from the true value (red line).
+   - Outliers or large deviations contribute disproportionately to the loss due to the squaring effect.
+
+
+### **Key Takeaway**
+- **Cross-Entropy Loss** is ideal for classification tasks, ensuring accurate probabilities and severe penalties for incorrect predictions.
+- **MSE Loss** is the go-to for regression, emphasizing precise predictions for continuous values.
+
+
+
+
+
 ------
 
 Happy Learning! 📊
