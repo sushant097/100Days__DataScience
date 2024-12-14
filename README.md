@@ -1440,6 +1440,106 @@ This comparison highlights the trade-offs between stability and speed across the
 
 
 **Linked Post [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-ai-activity-7272825090931658752-BI_k?utm_source=share&utm_medium=member_desktop)**
+
+
+# Day 21: **PCA vs t-SNE**
+
+Dimensionality reduction is an essential part of working with high-dimensional data, and two commonly used techniques for this purpose are **Principal Component Analysis (PCA)** and **t-Distributed Stochastic Neighbor Embedding (t-SNE)**. Understanding when to use each method is crucial for effective data analysis.
+
+### 📌 **Key Differences**
+
+| Aspect                 | PCA                                  | t-SNE                              |
+|------------------------|--------------------------------------|------------------------------------|
+| **Definition**         | A linear method that projects data onto directions of maximum variance. | A non-linear technique designed to visualize high-dimensional data in low-dimensional spaces. |
+| **Purpose**            | Feature extraction and dimensionality reduction. | Exploratory data analysis and visualization. |
+| **Scalability**        | Computationally efficient, works well on large datasets. | Computationally intensive, less suitable for large datasets. |
+| **Output**             | Produces principal components, which are interpretable directions of variance. | Emphasizes local structure and relationships, often leading to clusters in 2D/3D. |
+| **Distance Preservation** | Preserves global relationships in the data. | Preserves local relationships (neighboring points). |
+| **Interpretability**   | Outputs orthogonal components that can be interpreted. | Focuses on visualization; not suitable for downstream tasks like classification. |
+
+
+### 📌 **When to Use?**
+
+- **PCA**: Use PCA when you need interpretable results or want to preprocess features for machine learning models.
+  - Example: Reducing dimensions before clustering or classification.
+- **t-SNE**: Use t-SNE for visualizing high-dimensional data where understanding the **local structure** is important.
+  - Example: Exploring customer segmentation or high-dimensional embeddings like word vectors.
+
+
+
+### 💻 **Code:**
+
+Let’s apply **PCA** and **t-SNE** on the Iris dataset and visualize the results.
+
+```python
+# Importing required libraries
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
+
+# Load the Iris dataset
+iris = load_iris()
+X = iris.data
+y = iris.target
+target_names = iris.target_names
+
+# Apply PCA to reduce dimensions to 2D
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+
+# Apply t-SNE to reduce dimensions to 2D
+tsne = TSNE(n_components=2, random_state=42)
+X_tsne = tsne.fit_transform(X)
+
+# Visualizing PCA results
+plt.figure(figsize=(14, 6))
+
+plt.subplot(1, 2, 1)
+for i, target_name in enumerate(target_names):
+    plt.scatter(X_pca[y == i, 0], X_pca[y == i, 1], label=target_name, alpha=0.7)
+plt.title("PCA Visualization of Iris Dataset")
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.legend()
+
+# Visualizing t-SNE results
+plt.subplot(1, 2, 2)
+for i, target_name in enumerate(target_names):
+    plt.scatter(X_tsne[y == i, 0], X_tsne[y == i, 1], label=target_name, alpha=0.7)
+plt.title("t-SNE Visualization of Iris Dataset")
+plt.xlabel("t-SNE Component 1")
+plt.ylabel("t-SNE Component 2")
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+
+### **Visualization and Interpretation**
+
+![](images/Day21_pca_tsne.png)
+
+1️⃣ **PCA Visualization**:
+   - PCA separates the Iris classes relatively well along the principal components.
+   - It captures the **global variance**, showing distinct clusters but with some overlap.
+
+2️⃣ **t-SNE Visualization**:
+   - t-SNE creates more distinct clusters, capturing **local relationships** between data points.
+   - Ideal for understanding class separability or latent patterns in the data.
+
+
+
+### 📌 **Key Takeaways**
+
+1. PCA is fast, scalable, and interpretable—perfect for dimensionality reduction before further analysis.
+2. t-SNE excels at visualization and cluster identification but is computationally expensive and less interpretable.
+3. Choosing between PCA and t-SNE depends on the objective: **preprocessing** (PCA) vs. **visualization** (t-SNE).
+
+
 ------
 
 Happy Learning! 📊
