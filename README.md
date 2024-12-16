@@ -1853,6 +1853,7 @@ The image compares **Feature Selection** and **Feature Extraction**:
 
 
 
+**LinkedIn Post [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-ai-activity-7274284754005286912-HCA9?utm_source=share&utm_medium=member_desktop)**
 
 
 
