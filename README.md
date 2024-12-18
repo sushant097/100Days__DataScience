@@ -2070,6 +2070,6 @@ The visualization and metrics provide insights into the clustering performance:
 These metrics and visualizations can help evaluate the effectiveness of clustering algorithms in different contexts.
 
 
-
+**Summary Post: [here](https://www.linkedin.com/posts/susan-gautam_datascience-machinelearning-ai-activity-7274995437009289216-errX?utm_source=share&utm_medium=member_desktop)**
 
 Happy Learning! 📊
