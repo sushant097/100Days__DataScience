@@ -1863,6 +1863,8 @@ The image compares **Feature Selection** and **Feature Extraction**:
 The evaluation of machine learning models depends on the problem type: classification, regression, or clustering. Below are the most commonly used metrics in each category, along with when and why they are used.
 
 
+![](images/Day24.png)
+
 
 ### **1. Classification Metrics**
 
@@ -1934,7 +1936,7 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **d) R² (Coefficient of Determination)**
 - **Definition**: Measures the proportion of variance in the target variable explained by the model.
 - **Formula**:  
-  $$R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}$$
+  $$R^2$$ = 1 - $$\frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}$$
 - **When to Use**: To assess model fit; higher is better.
 
 
