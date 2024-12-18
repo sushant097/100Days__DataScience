@@ -1869,9 +1869,7 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **a) Accuracy**
 - **Definition**: The ratio of correctly predicted samples to the total number of samples.
 - **Formula**:  
-  $$
-  \text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Predictions}}
-  $$
+  $$\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Predictions}}$$
 - **When to Use**: For balanced datasets.
 - **Limitation**: Not reliable for imbalanced datasets.
 
@@ -1880,29 +1878,23 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **b) Precision**
 - **Definition**: The ratio of correctly predicted positive samples to the total predicted positive samples.
 - **Formula**:  
-  $$
-  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-  $$
+  $$\text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}$$
 - **When to Use**: When false positives are costly (e.g., spam detection).
 
----
+
 
 #### **c) Recall (Sensitivity, True Positive Rate)**
 - **Definition**: The ratio of correctly predicted positive samples to all actual positive samples.
 - **Formula**:  
-  $$
-  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-  $$
+  $$\text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}$$
 - **When to Use**: When false negatives are costly (e.g., disease detection).
 
----
+
 
 #### **d) F1-Score**
 - **Definition**: The harmonic mean of precision and recall.
 - **Formula**:  
-  $$
-  \text{F1-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
-  $$
+  $$\text{F1-Score} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
 - **When to Use**: For imbalanced datasets where both precision and recall are important.
 
 ---
@@ -1918,9 +1910,7 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **a) Mean Absolute Error (MAE)**
 - **Definition**: The average of the absolute differences between predicted and actual values.
 - **Formula**:  
-  $$
-  \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
-  $$
+  $$\text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|$$
 - **When to Use**: To measure average magnitude of errors, regardless of direction.
 
 
@@ -1928,9 +1918,7 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **b) Mean Squared Error (MSE)**
 - **Definition**: The average of the squared differences between predicted and actual values.
 - **Formula**:  
-  $$
-  \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
-  $$
+  $$\text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2$$
 - **When to Use**: Penalizes large errors more than MAE.
 
 
@@ -1938,9 +1926,7 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **c) Root Mean Squared Error (RMSE)**
 - **Definition**: The square root of MSE.
 - **Formula**:  
-  $$
-  \text{RMSE} = \sqrt{\text{MSE}}
-  $$
+  $$\text{RMSE} = \sqrt{\text{MSE}}$$
 - **When to Use**: To compare errors on the same scale as the target variable.
 
 
@@ -1948,9 +1934,7 @@ The evaluation of machine learning models depends on the problem type: classific
 #### **d) R² (Coefficient of Determination)**
 - **Definition**: Measures the proportion of variance in the target variable explained by the model.
 - **Formula**:  
-  $$
-  R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}
-  $$
+  $$R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}$$
 - **When to Use**: To assess model fit; higher is better.
 
 
